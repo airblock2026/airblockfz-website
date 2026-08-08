@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Air Block — 상상을 현실로 / Imagination into Reality</title>
+<meta name="description" content="Air Block L.L.C-FZ — Dubai. We turn imagination into reality: AI-powered finance, market, and lifestyle mobile apps. 상상을 현실로, 무(無)에서 유(有)로." />
+<meta name="author" content="Air Block L.L.C-FZ" />
+<link rel="canonical" href="https://airblockfz.com/" />
+<meta name="theme-color" content="#15100a" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%2315100a'/><rect x='3' y='5' width='10' height='6' fill='%23c2775a'/><rect x='4' y='4' width='2' height='1' fill='%239c5237'/><rect x='10' y='4' width='2' height='1' fill='%239c5237'/><rect x='3' y='11' width='2' height='2' fill='%239c5237'/><rect x='7' y='11' width='2' height='2' fill='%239c5237'/><rect x='11' y='11' width='2' height='2' fill='%239c5237'/><rect x='5' y='6' width='2' height='2' fill='%23241612'/><rect x='9' y='6' width='2' height='2' fill='%23241612'/></svg>" />
+<!-- Open Graph / 소셜 카드 -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Air Block" />
+<meta property="og:title" content="Air Block — Imagination into Reality" />
+<meta property="og:description" content="A Busan founder, building in Dubai. AI-powered finance, market & lifestyle mobile apps that make complex data clear to everyone." />
+<meta property="og:url" content="https://airblockfz.com/" />
+<meta property="og:image" content="https://airblockfz.com/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Air Block — Imagination into Reality. A Busan founder, building in Dubai." />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="ar_AE" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Air Block — Imagination into Reality" />
+<meta name="twitter:description" content="A Busan founder, building in Dubai. AI-powered finance, market & lifestyle mobile apps." />
+<meta name="twitter:image" content="https://airblockfz.com/og.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="assets/style.css" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Air Block L.L.C-FZ","alternateName":"Air Block","url":"https://airblockfz.com/","logo":"https://airblockfz.com/og.png","image":"https://airblockfz.com/og.png","email":"info@airblockfz.com","description":"AI-powered finance, market, and lifestyle mobile apps that make complex data clear to everyone.","address":{"@type":"PostalAddress","streetAddress":"Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba","addressLocality":"Dubai","addressCountry":"AE"}}
+</script>
+<script src="assets/app.js"></script>
+<script src="assets/scene.js" defer></script>
+<script src="assets/apps.js" defer></script>
+<script src="assets/catalog.js" defer></script>
+<script src="assets/sound.js" defer></script>
+<script src="assets/fx.js" defer></script>
+<style>
+/* ===== 시네마틱 사막→오아시스 여정 ===== */
+.journey { position: relative; height: 640vh; background: #120c06; }
+.stage {
+  position: sticky; top: 0; height: 100vh; overflow: hidden;
+  perspective: 1100px; --p: 0;
+  background: linear-gradient(180deg, #fde7b4 0%, #f6c879 50%, #eaa85c 100%);
+  transition: background 1.1s ease;
+}
+.stage[data-phase="1"] { background: linear-gradient(180deg, #fbdca0 0%, #f0b066 50%, #db8f44 100%); }
+.stage[data-phase="2"] { background: linear-gradient(180deg, #f8cb7c 0%, #e89b4e 48%, #c66a2e 100%); }
+.stage[data-phase="3"] { background: linear-gradient(180deg, #f3b15e 0%, #d9743a 45%, #6e3566 100%); }
+.stage[data-phase="4"] { background: linear-gradient(180deg, #122c40 0%, #1b4d5e 45%, #2c8a73 100%); }
+
+/* 별 (오아시스 야경에서만) */
+.stars { position: absolute; inset: 0 0 35% 0; opacity: 0; transition: opacity 1.3s ease; pointer-events: none; }
+.stage[data-phase="4"] .stars { opacity: 1; }
+.stars i { position: absolute; background: #fff; border-radius: 50%; opacity: .85; animation: tw 2.6s ease-in-out infinite; }
+@keyframes tw { 0%,100% { opacity: .2; transform: scale(.7); } 50% { opacity: .95; transform: scale(1); } }
+
+/* 태양 — 스크롤 따라 가라앉음(일몰), 밤엔 사라짐 */
+.sun {
+  position: absolute; left: 50%; top: 12%; width: 120px; height: 120px; margin-left: -60px; border-radius: 50%;
+  background: radial-gradient(circle at 50% 45%, #fff7e2, #ffd36a 52%, rgba(255,180,70,0) 72%);
+  transform: translate(calc(var(--p) * 70px), calc(var(--p) * var(--p) * 600px)) scale(calc(1 - var(--p) * .12));
+  transition: background 1.1s ease, opacity .9s ease; filter: drop-shadow(0 0 52px rgba(255,200,90,.55));
+}
+.stage[data-phase="3"] .sun { background: radial-gradient(circle at 50% 45%, #ffdca0, #ff7a3a 52%, rgba(255,110,50,0) 72%); filter: drop-shadow(0 0 64px rgba(255,120,60,.6)); }
+.stage[data-phase="4"] .sun { opacity: 0; }
+/* 🌙 초승달 — 밤이 되면 떠오름 */
+.moon { position: absolute; right: 15%; top: 9%; width: 92px; z-index: 1; opacity: 0; transform: translateY(46px) rotate(-18deg); transition: opacity 1.3s ease, transform 1.3s ease; pointer-events: none; }
+.stage[data-phase="3"] .moon { opacity: .45; transform: translateY(8px) rotate(-18deg); }
+.stage[data-phase="4"] .moon { opacity: 1; transform: translateY(0) rotate(-18deg); }
+.moon svg { width: 100%; height: auto; filter: drop-shadow(0 0 18px rgba(200,225,255,.75)); }
+
+/* 열기 아지랑이 */
+.heat { position: absolute; inset: 48% 0 22% 0; z-index: 6; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(255,242,205,.12) 0 2px, rgba(255,242,205,0) 2px 9px),
+              linear-gradient(180deg, rgba(255,240,200,.16), transparent 55%);
+  mix-blend-mode: screen; filter: url(#heatHaze); opacity: .6; animation: heat 5s ease-in-out infinite; }
+.stage[data-phase="1"] .heat { opacity: .8; }
+.stage[data-phase="2"] .heat { opacity: .85; }
+@keyframes heat { 0%,100% { transform: translateY(0) scaleY(1); } 50% { transform: translateY(-4px) scaleY(1.02); } }
+.stage[data-phase="4"] .heat { opacity: 0; }
+
+/* 사구 레이어 (패럴랙스) */
+.dunes { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; }
+.dunes svg { display: block; width: 100%; height: auto; }
+.dune-far  { bottom: 30%; transform: translateY(calc(var(--p) * -26px)); opacity: .9; }
+.dune-mid  { bottom: 16%; transform: translateY(calc(var(--p) * -12px)); }
+.dune-near { bottom: -2%;  z-index: 5; }
+
+/* 마일스톤 공통: 등장 애니메이션 */
+[data-show] { opacity: 0; transition: opacity 1s ease, transform 1.1s cubic-bezier(.2,.7,.2,1); }
+[data-show].show { opacity: 1; }
+
+/* 야자나무 */
+.palm { position: absolute; left: 12%; bottom: 17%; width: 120px; z-index: 4; transform: translateY(60px) scale(.85); transform-origin: bottom center; }
+.palm.show { transform: translateY(0) scale(1); }
+.palm svg { width: 100%; height: auto; animation: sway 5s ease-in-out infinite; transform-origin: bottom center; }
+@keyframes sway { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2.5deg); } }
+
+/* 호리병 / 지니 램프 */
+.lamp { position: absolute; left: 50%; margin-left: -60px; bottom: 26%; width: 120px; z-index: 6; transform: translateY(50px) scale(.7) rotate(-6deg); }
+.lamp.show { transform: translateY(0) scale(1) rotate(0); }
+.lamp svg { width: 100%; height: auto; filter: drop-shadow(0 6px 18px rgba(120,70,0,.4)); }
+.lamp .spark { animation: spark 2.2s ease-in-out infinite; transform-origin: center; }
+@keyframes spark { 0%,100% { opacity: .25; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.15); } }
+
+/* 부르즈 칼리파 */
+.burj { position: absolute; right: 11%; bottom: 16%; width: 78px; z-index: 3; transform: translateY(120px); transform-origin: bottom center; }
+.burj.show { transform: translateY(0); }
+.burj svg { width: 100%; height: auto; filter: drop-shadow(0 0 24px rgba(180,210,255,.3)); }
+
+/* 🕌 이슬람 사원 (두바이 상징) — 중앙 지평선 */
+.mosque { position: absolute; left: 50%; margin-left: -86px; bottom: 15.5%; width: 168px; z-index: 2; transform: translateY(78px); transform-origin: bottom center; }
+.mosque.show { transform: translateY(0); }
+.mosque svg { width: 100%; height: auto; filter: drop-shadow(0 7px 16px rgba(90,60,10,.32)); }
+/* 🏨 부르즈 알 아랍 (돛 모양 — 두바이 상징) */
+.burjarab { position: absolute; right: 22%; bottom: 16%; width: 58px; z-index: 3; transform: translateY(130px); transform-origin: bottom center; }
+.burjarab.show { transform: translateY(0); }
+.burjarab svg { width: 100%; height: auto; filter: drop-shadow(0 0 16px rgba(180,210,255,.35)); }
+/* 🏯 한옥 기와집 (부산 남자의 고향 — 한국 고유, 여정 출발점) */
+.hanok { position: absolute; left: 2%; bottom: 16%; width: 132px; z-index: 2; transform: translateY(70px); transform-origin: bottom center; }
+.hanok.show { transform: translateY(0); }
+.hanok svg { width: 100%; height: auto; filter: drop-shadow(0 6px 13px rgba(40,30,10,.34)); }
+
+/* 🌊 부산 바다 (출발점 — 광안리. phase 0~1 보였다 사막으로 사라짐 = 바다를 건너 사막으로) */
+.sea { position: absolute; left: 0; right: 0; bottom: 23%; height: 14%; z-index: 3; opacity: 0; transition: opacity 1.3s ease; overflow: hidden;
+  background: linear-gradient(180deg, #4aa6c4 0%, #2b7fa3 55%, #1a5d7e 100%); }
+.stage[data-phase="0"] .sea { opacity: 1; }
+.stage[data-phase="1"] .sea { opacity: .45; }
+.sea::after { content: ""; position: absolute; inset: 0;
+  background: repeating-linear-gradient(180deg, rgba(255,255,255,.16) 0 1px, transparent 1px 9px); mix-blend-mode: screen;
+  animation: seashine 6s ease-in-out infinite alternate; }
+@keyframes seashine { from { transform: translateX(-3%); opacity:.7; } to { transform: translateX(3%); opacity:1; } }
+/* 🌉 광안대교 (부산 — 다이아몬드 현수교, 바다 위. phase 0~1) */
+.gwangan { position: absolute; left: 50%; margin-left: -150px; bottom: 28%; width: 300px; z-index: 4; opacity: 0; transform: translateY(20px); transition: opacity 1.2s ease, transform 1.2s ease; }
+.stage[data-phase="0"] .gwangan { opacity: 1; transform: translateY(0); }
+.stage[data-phase="1"] .gwangan { opacity: .4; transform: translateY(0); }
+.gwangan svg { width: 100%; height: auto; filter: drop-shadow(0 4px 10px rgba(20,50,70,.35)); }
+/* ⛴️ 페리 — 부산 바다를 건너 (phase 0~1, 좌→우 항해) */
+.ship { position: absolute; left: 0; bottom: 25%; width: 56px; z-index: 4; opacity: 0; transition: opacity 1.3s ease; transform: translateX(-70px); animation: sail 40s linear infinite; }
+.stage[data-phase="0"] .ship { opacity: 1; }
+.stage[data-phase="1"] .ship { opacity: .5; }
+.ship svg { width: 100%; height: auto; filter: drop-shadow(0 3px 6px rgba(20,50,70,.3)); animation: shipbob 3.2s ease-in-out infinite; transform-origin: center bottom; }
+@keyframes sail { from { transform: translateX(-70px); } to { transform: translateX(calc(100vw + 70px)); } }
+@keyframes shipbob { 0%,100% { transform: translateY(0) rotate(-1.6deg); } 50% { transform: translateY(-3px) rotate(1.6deg); } }
+/* 🖼️ 두바이 프레임 (두바이 상징 — 거대 황금 액자) */
+.dubaiframe { position: absolute; right: 35%; bottom: 16%; width: 70px; z-index: 2; transform: translateY(120px); transform-origin: bottom center; }
+.dubaiframe.show { transform: translateY(0); }
+.dubaiframe svg { width: 100%; height: auto; filter: drop-shadow(0 6px 14px rgba(120,90,10,.32)); }
+/* 🦅 매 (UAE 상징 — 두바이 도착 phase 3~4, 하늘을 가름) */
+.falcon { position: absolute; top: 19%; left: 0; width: 56px; z-index: 2; opacity: 0; transition: opacity 1.2s ease; animation: falconfly 24s linear infinite; }
+.stage[data-phase="3"] .falcon, .stage[data-phase="4"] .falcon { opacity: .9; }
+.falcon svg { width: 100%; height: auto; filter: drop-shadow(0 6px 8px rgba(40,20,0,.3)); animation: falconflap 1.9s ease-in-out infinite; transform-origin: center; }
+@keyframes falconfly { 0% { transform: translate(105vw, 0); } 100% { transform: translate(-15vw, 46px); } }
+@keyframes falconflap { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(.8); } }
+
+/* 오아시스 (물) */
+.oasis { position: absolute; left: 0; right: 0; bottom: 0; height: 34%; z-index: 4; transform: translateY(40px); }
+.oasis.show { transform: translateY(0); }
+.oasis .water { position: absolute; left: 50%; bottom: 4%; width: 78%; height: 60%; margin-left: -39%; border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 40%, #7fe3d6, #2fa6a0 55%, #14706e 100%); box-shadow: 0 0 50px rgba(60,220,200,.45); overflow: hidden; }
+.oasis .water::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 40%, rgba(255,255,255,.28) 50%, transparent 60%); animation: shine 4.5s linear infinite; }
+/* 캐스틱(수면 빛 그물) — 잔물결 일렁임 */
+.oasis .water::before { content: ""; position: absolute; inset: -10%;
+  background:
+    radial-gradient(circle at 30% 35%, rgba(255,255,255,.22) 0 2px, transparent 3px),
+    radial-gradient(circle at 62% 28%, rgba(255,255,255,.18) 0 2px, transparent 3px),
+    radial-gradient(circle at 48% 60%, rgba(255,255,255,.2) 0 2px, transparent 4px),
+    radial-gradient(circle at 75% 66%, rgba(255,255,255,.16) 0 2px, transparent 3px),
+    repeating-radial-gradient(circle at 50% 45%, transparent 0 8px, rgba(220,255,250,.06) 9px, transparent 12px);
+  mix-blend-mode: screen; animation: caustic 6s ease-in-out infinite alternate; }
+@keyframes shine { 0% { transform: translateX(-60%); } 100% { transform: translateX(60%); } }
+@keyframes caustic { 0% { transform: scale(1) translateY(0); opacity:.7; } 50% { transform: scale(1.06) translateY(-2px); opacity:1; } 100% { transform: scale(1.02) translateY(1px); opacity:.8; } }
+.oasis .opalm { position: absolute; bottom: 18%; width: 70px; }
+.oasis .opalm.l { left: 16%; } .oasis .opalm.r { right: 16%; transform: scaleX(-1); }
+.oasis .opalm svg { width: 100%; animation: sway 6s ease-in-out infinite; transform-origin: bottom center; }
+
+/* 캐러밴 (낙타+나그네) — 스크롤 따라 횡단 */
+.caravan { position: absolute; bottom: 19%; left: calc(-14% + var(--p) * 86%); width: 150px; z-index: 7; transition: filter 1s ease; }
+.caravan svg { width: 100%; height: auto; animation: bob 1.6s ease-in-out infinite; filter: drop-shadow(0 8px 10px rgba(80,40,0,.35)); }
+@keyframes bob { 0%,100% { transform: translateY(0) rotate(-.6deg); } 50% { transform: translateY(-5px) rotate(.6deg); } }
+.stage[data-phase="4"] .caravan svg { filter: drop-shadow(0 8px 14px rgba(0,0,0,.4)) brightness(.8); }
+
+/* ===== 자연환경 + 디테일 업그레이드 ===== */
+/* 비네트 — 가장자리 어둡게 해 깊이감 */
+.vignette { position: absolute; inset: 0; z-index: 8; pointer-events: none; background: radial-gradient(125% 85% at 50% 32%, transparent 55%, rgba(30,16,2,.34) 100%); transition: background 1.1s ease; }
+.stage[data-phase="4"] .vignette { background: radial-gradient(125% 85% at 50% 30%, transparent 48%, rgba(0,10,18,.55) 100%); }
+
+/* 모래폭풍 (시련 — phase 1~2 강해짐) */
+.sandstorm { position: absolute; inset: 0; z-index: 7; pointer-events: none; opacity: 0; transition: opacity 1.1s ease; }
+.stage[data-phase="1"] .sandstorm { opacity: .45; }
+.stage[data-phase="2"] .sandstorm { opacity: .82; }
+.sandstorm .haze { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(216,172,102,.22), rgba(198,150,86,.5)); animation: hazeDrift 9s ease-in-out infinite alternate; }
+@keyframes hazeDrift { from { opacity:.8; transform: translateX(-1.5%);} to { opacity:1; transform: translateX(1.5%);} }
+/* 모래 파티클 (유체 느낌 — scene.js가 .grains에 생성) */
+.sandstorm .grains { position: absolute; inset: 0; overflow: hidden; }
+.sandstorm .grain { position: absolute; left: -6%; border-radius: 50%;
+  background: radial-gradient(circle at 38% 34%, rgba(247,222,160,.95), rgba(214,168,92,.55) 62%, rgba(190,140,72,0) 100%);
+  will-change: transform; animation: sandblow linear infinite; }
+@keyframes sandblow {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(24vw, calc(var(--sy,12px) * -1)); }
+  40%  { transform: translate(48vw, var(--sy,12px)); }
+  60%  { transform: translate(72vw, calc(var(--sy,12px) * -0.7)); }
+  80%  { transform: translate(96vw, calc(var(--sy,12px) * 0.5)); }
+  100% { transform: translate(122vw, 0); }
+}
+
+/* 비 (사막의 축복 — phase 3~4) — 개별 물방울 낙하(빔 아님) */
+.rain { position: absolute; inset: 0; z-index: 7; pointer-events: none; opacity: 0; transition: opacity 1s ease; overflow: hidden; }
+.stage[data-phase="3"] .rain { opacity: 1; }
+.stage[data-phase="4"] .rain { opacity: .5; }
+.rain .drop { position: absolute; top: 0; width: 1.5px; height: 16px; border-radius: 60% 60% 50% 50% / 30% 30% 70% 70%;
+  background: linear-gradient(to bottom, rgba(206,228,248,0) 0%, rgba(208,230,250,.5) 50%, rgba(232,245,255,.92) 100%);
+  box-shadow: 0 0 1px rgba(225,242,255,.5); will-change: transform, opacity;
+  animation: rainfall linear infinite; }
+@keyframes rainfall {
+  0%   { transform: translate3d(0, -16vh, 0) rotate(9deg) scaleY(.7); opacity: 0; }
+  6%   { opacity: 1; }
+  88%  { opacity: 1; transform: translate3d(-9vh, 100vh, 0) rotate(9deg) scaleY(1); }
+  100% { transform: translate3d(-10vh, 112vh, 0) rotate(9deg) scaleY(1); opacity: 0; }
+}
+/* 바닥 빗방울 튀김 링 */
+.rain .ripple { position: absolute; bottom: 14%; width: 14px; height: 5px; border: 1.4px solid rgba(220,240,255,.6); border-radius: 50%; opacity: 0; transform: scale(.3); animation: ripple 1.6s ease-out infinite; }
+@keyframes ripple { 0% { opacity: 0; transform: scale(.2); } 12% { opacity: .8; } 100% { opacity: 0; transform: scale(1.5); } }
+
+/* 낙타 걷기 (다리 교대 스윙) */
+.caravan .leg { transform-box: fill-box; transform-origin: center top; animation: legwalk .62s ease-in-out infinite; }
+.caravan .leg.b { animation-delay: -.31s; }
+@keyframes legwalk { 0%,100% { transform: rotate(12deg); } 50% { transform: rotate(-12deg); } }
+[data-end="1"] .caravan .leg, [data-end="1"] .follower svg, [data-end="1"] .f-leg { animation-play-state: paused; }
+
+/* 🟠 함께 떠난 Claude 동료들 (개발자 곁의 디즈니풍 메인 캐릭터 + 뒤따르는 동료) */
+.followers { position: absolute; bottom: 18%; left: calc(-14% + var(--p,0) * 86%); width: 0; z-index: 6; }
+.follower { position: absolute; bottom: 0; left: calc(var(--i) * -30px); width: 27px; }
+.follower svg { width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 4px 5px rgba(80,40,0,.3)) drop-shadow(0 0 7px rgba(224,122,79,.5)); animation: fbob 1.1s ease-in-out infinite; }
+.follower:nth-child(2n) svg { animation-delay: -.55s; }
+.follower:nth-child(3n) svg { animation-delay: -.3s; }
+@keyframes fbob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+.f-leg { transform-box: fill-box; transform-origin: center top; animation: legwalk .56s ease-in-out infinite; }
+.f-leg.b { animation-delay: -.28s; }
+/* 메인 캐릭터(선두): 더 크고 빛나며 손끝 마법 스파클 */
+.follower.lead { width: 74px; left: -30px; z-index: 8; }
+.follower.lead svg { filter: drop-shadow(0 5px 8px rgba(80,40,0,.34)) drop-shadow(0 0 13px rgba(234,128,72,.72)); animation: fbob 1.5s ease-in-out infinite; }
+.follower.lead .caura { animation: caura 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes caura { 0%,100% { opacity: .5; transform: scale(.95); } 50% { opacity: .85; transform: scale(1.08); } }
+.cmagic { transform-box: fill-box; transform-origin: center; animation: cmagic 2.4s ease-in-out infinite; }
+@keyframes cmagic { 0%,100% { opacity: .45; transform: scale(.7) rotate(0); } 50% { opacity: 1; transform: scale(1.18) rotate(45deg); } }
+/* 깊이감: 먼 동료일수록 작고 흐리게 (DOM 앞쪽이 먼 동료) */
+.follower:not(.lead):nth-child(-n+2) { opacity: .74; transform: scale(.84); }
+.follower:not(.lead):nth-child(3), .follower:not(.lead):nth-child(4) { opacity: .9; transform: scale(.93); }
+[data-end="1"] .cmagic, [data-end="1"] .follower.lead .caura { animation-play-state: paused; }
+@media (max-width:560px){ .follower:not(.lead):nth-child(-n+2){ display:none; } }
+
+/* 💡 아이디어 전구 (낙타 위에서 샘솟음) */
+.ideas { position: absolute; left: 46%; top: -4%; width: 0; z-index: 9; }
+.bulb { position: absolute; left: 0; bottom: 0; font-size: 19px; opacity: 0; filter: drop-shadow(0 0 8px rgba(255,224,130,.95)); animation: idea 3.4s ease-in-out infinite; }
+.bulb:nth-child(2) { left: -17px; animation-delay: .85s; }
+.bulb:nth-child(3) { left: 15px; animation-delay: 1.7s; }
+.bulb:nth-child(4) { left: -5px; animation-delay: 2.55s; }
+@keyframes idea {
+  0% { opacity: 0; transform: translateY(8px) scale(.3); }
+  14% { opacity: 1; transform: translateY(-3px) scale(1.15); }
+  28% { transform: translateY(-13px) scale(1); }
+  68% { opacity: .92; transform: translateY(-42px) scale(1); }
+  100% { opacity: 0; transform: translateY(-66px) scale(.82); }
+}
+[data-end="1"] .ideas { opacity: 0; transition: opacity .5s ease; }
+
+/* 다이빙 물보라 (풍덩! 물방울 튀김) */
+.splashburst { position: absolute; left: 49%; bottom: 21%; z-index: 8; pointer-events: none; }
+.splashburst i { position: absolute; left: 0; bottom: 0; width: 8px; height: 8px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #f0fffb, #7fe3d6 70%); opacity: 0; }
+.splashburst i:nth-child(1) { --dx: -30px; --dy: -40px; width: 9px; height: 9px; }
+.splashburst i:nth-child(2) { --dx: -14px; --dy: -54px; }
+.splashburst i:nth-child(3) { --dx: 6px; --dy: -58px; }
+.splashburst i:nth-child(4) { --dx: 22px; --dy: -46px; width: 7px; height: 7px; }
+.splashburst i:nth-child(5) { --dx: 36px; --dy: -30px; width: 6px; height: 6px; }
+.splashburst i:nth-child(6) { --dx: -38px; --dy: -22px; width: 6px; height: 6px; }
+[data-end="1"] .splashburst i { animation: drop 1.05s ease-out 1.2s 1; }
+@keyframes drop {
+  0% { opacity: 0; transform: translate(0,0) scale(.3); }
+  18% { opacity: 1; }
+  45% { opacity: 1; transform: translate(var(--dx), var(--dy)) scale(1); }
+  100% { opacity: 0; transform: translate(calc(var(--dx) * 1.5), 14px) scale(.5); }
+}
+
+/* 엔딩: 풍덩 다이빙 + 수영 */
+.diver { position: absolute; left: 60%; bottom: 25%; width: 42px; z-index: 8; opacity: 0; }
+.diver svg { width: 100%; height: auto; }
+[data-end="1"] .diver { animation: dive 1.35s cubic-bezier(.45,0,.7,1) forwards; }
+@keyframes dive {
+  0%   { opacity: 1; transform: translate(0,0) rotate(0deg); }
+  35%  { opacity: 1; transform: translate(-26px,-48px) rotate(-110deg); }
+  78%  { opacity: 1; transform: translate(-80px,68px) rotate(-235deg); }
+  100% { opacity: 0; transform: translate(-98px,114px) rotate(-275deg); }
+}
+[data-end="1"] .caravan .rider { opacity: 0; transition: opacity .35s ease .2s; }
+.swimmer { position: absolute; left: 40%; bottom: 19%; width: 76px; z-index: 8; opacity: 0; transition: opacity .6s ease 1s; }
+.swimmer svg { width: 100%; height: auto; }
+[data-end="1"] .swimmer { opacity: 1; animation: swim 2.6s ease-in-out 1.5s infinite; }
+@keyframes swim { 0%,100% { transform: translateX(-8px) rotate(-3deg); } 50% { transform: translateX(40px) rotate(3deg); } }
+.splash { position: absolute; left: 50%; bottom: 16%; z-index: 7; pointer-events: none; }
+.splash i { position: absolute; left: 0; bottom: 0; width: 14px; height: 8px; margin-left: -7px; border: 2px solid rgba(255,255,255,.75); border-radius: 50%; opacity: 0; }
+.splash i:nth-child(2) { width: 28px; height: 14px; margin-left: -14px; }
+[data-end="1"] .splash i { animation: ripple 1.7s ease-out 1.05s 2; }
+@keyframes ripple { 0% { opacity: .85; transform: scale(.35); } 100% { opacity: 0; transform: scale(3.4); } }
+
+/* 그림자 — 태양 위치 따라 길어짐(일몰)·밤엔 흐려짐 */
+.cast-shadow { position: absolute; bottom: -3px; height: 15px; border-radius: 50%; background: radial-gradient(ellipse at 50% 50%, rgba(24,10,0,.42), transparent 72%); filter: blur(3px); transform-origin: center bottom; pointer-events: none; z-index: 0; transition: opacity 1s ease; }
+.caravan .cast-shadow { left: 8%; width: 80%; transform: scaleX(calc(.85 + var(--p) * 2.8)) translateX(calc(var(--p) * -22%)); opacity: calc(.6 - var(--p) * .34); }
+.palm .cast-shadow { left: 24%; width: 64%; bottom: 2px; transform: scaleX(calc(.85 + var(--p) * 2.8)) translateX(calc(var(--p) * -22%)); opacity: calc(.5 - var(--p) * .3); }
+.caravan .camel, .palm svg { position: relative; z-index: 1; }
+.stage[data-phase="4"] .cast-shadow { background: radial-gradient(ellipse at 50% 50%, rgba(0,16,30,.4), transparent 72%); }
+
+/* 🌊 갈매기 (부산 — 바다의 흔적, 사막 들어가며 사라짐) */
+.gulls { position: absolute; inset: 0 0 40% 0; z-index: 2; pointer-events: none; opacity: 0; transition: opacity 1.1s ease; }
+.stage[data-phase="0"] .gulls, .stage[data-phase="1"] .gulls { opacity: .9; }
+.gull { position: absolute; width: 30px; }
+.gull.g1 { top: 22%; left: 64%; animation: gullfly 16s linear infinite; }
+.gull.g2 { top: 30%; left: 80%; width: 22px; animation: gullfly 20s linear infinite 2s; }
+.gull.g3 { top: 16%; left: 50%; width: 18px; animation: gullfly 24s linear infinite 5s; }
+.gull svg { width: 100%; height: auto; animation: flap 1.3s ease-in-out infinite; }
+@keyframes flap { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(.55); } }
+@keyframes gullfly { 0% { transform: translate(0,0); } 100% { transform: translate(-75vw, 26px); } }
+
+/* 💻 맥북에서 비트코인 큐브 → 아이디어로 변환 (낙타 위에서) */
+.ideas { position: absolute; left: 47%; top: 4%; width: 0; z-index: 9; }
+.spark { position: absolute; left: 0; bottom: 0; width: 24px; }
+.spark .cube, .spark .bulbi { position: absolute; left: 0; bottom: 0; width: 24px; height: auto; opacity: 0; }
+.spark .cube { animation: cuberise 3.9s ease-in-out infinite; filter: drop-shadow(0 0 7px rgba(247,160,28,.7)); }
+.spark .bulbi { animation: bulbrise 3.9s ease-in-out infinite; filter: drop-shadow(0 0 9px rgba(255,224,130,.95)); }
+.spark:nth-child(2) { left: -19px; } .spark:nth-child(2) .cube, .spark:nth-child(2) .bulbi { animation-delay: 1.3s; }
+.spark:nth-child(3) { left: 17px; } .spark:nth-child(3) .cube, .spark:nth-child(3) .bulbi { animation-delay: 2.6s; }
+@keyframes cuberise {
+  0% { opacity: 0; transform: translateY(6px) scale(.35) rotate(0deg); }
+  10% { opacity: 1; transform: translateY(-4px) scale(1) rotate(10deg); }
+  38% { opacity: 1; transform: translateY(-26px) scale(1) rotate(-8deg); }
+  50% { opacity: 0; transform: translateY(-34px) scale(.65) rotate(0deg); }
+  100% { opacity: 0; }
+}
+@keyframes bulbrise {
+  0%,46% { opacity: 0; transform: translateY(-30px) scale(.5); }
+  57% { opacity: 1; transform: translateY(-42px) scale(1.15); }
+  82% { opacity: 1; transform: translateY(-60px) scale(1); }
+  100% { opacity: 0; transform: translateY(-82px) scale(.82); }
+}
+[data-end="1"] .ideas { opacity: 0; transition: opacity .5s ease; }
+
+/* 🐉 청룡 승천 (여의주 물고 주인공 태우고 하늘로) */
+.dragon { position: absolute; left: 44%; bottom: 6%; width: 260px; margin-left: -130px; z-index: 9; opacity: 0; transform: translateY(70px) scale(.55); transform-origin: center bottom; pointer-events: none; }
+.dragon svg { width: 100%; height: auto; filter: drop-shadow(0 0 26px rgba(90,200,255,.55)); }
+[data-ascend="1"] .dragon { animation: ascend 4.4s cubic-bezier(.3,.08,.3,1) forwards; }
+@keyframes ascend {
+  0% { opacity: 0; transform: translateY(70px) scale(.5) rotate(5deg); }
+  16% { opacity: 1; transform: translateY(6px) scale(.8) rotate(-3deg); }
+  42% { opacity: 1; transform: translateY(-110px) scale(1) rotate(4deg); }
+  100% { opacity: 0; transform: translateY(-680px) scale(1.05) rotate(-5deg); }
+}
+.dragon .coil { animation: coil 3.2s ease-in-out infinite; transform-origin: center; }
+@keyframes coil { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-8px) rotate(1.5deg); } }
+.dragon .orb { animation: orbpulse 1.7s ease-in-out infinite; transform-origin: center; }
+@keyframes orbpulse { 0%,100% { opacity: .8; } 50% { opacity: 1; } }
+[data-ascend="1"] .swimmer { opacity: 0 !important; transition: opacity .6s ease; }
+.cap-ascend { position: absolute; left: 0; right: 0; top: 18%; text-align: center; padding: 0 22px; z-index: 10; opacity: 0; transform: translateY(16px); transition: opacity 1s ease .6s, transform 1s ease .6s; pointer-events: none; }
+[data-ascend="1"] .cap-ascend { opacity: 1; transform: translateY(0); }
+[data-ascend="1"] .caps { opacity: 0; transition: opacity .5s ease; }
+.cap-ascend h2 { font-size: clamp(30px,7vw,64px); font-weight: 900; color: #eafff8; margin: 0; text-shadow: 0 2px 36px rgba(60,160,220,.8); line-height: 1.05; }
+.cap-ascend p { font-size: clamp(14px,2.6vw,20px); font-weight: 700; color: #bfe7ff; margin: 12px 0 0; }
+
+/* 캡션 */
+.caps { position: absolute; left: 0; right: 0; top: 16%; text-align: center; padding: 0 22px; z-index: 9; pointer-events: none; }
+.cap { position: absolute; left: 0; right: 0; opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; padding: 0 22px; }
+.cap.on { opacity: 1; transform: translateY(0); position: relative; }
+.cap h2 { font-size: clamp(30px, 7vw, 64px); font-weight: 900; letter-spacing: -.02em; margin: 0; color: #1a1206; text-shadow: 0 2px 30px rgba(255,240,200,.7); line-height: 1.05; }
+.cap p { font-size: clamp(14px, 2.6vw, 20px); font-weight: 700; color: #5a3d12; margin: 12px 0 0; }
+/* 인트로 글자 개별 등장 (사이트 로딩 오해 방지) */
+.cap .ltr { display: inline-block; opacity: 0; transform: translateY(20px) rotateX(50deg) scale(.7); animation: ltrIn .55s cubic-bezier(.2,.8,.3,1) forwards; will-change: transform, opacity; }
+@keyframes ltrIn { to { opacity: 1; transform: none; } }
+.stage[data-phase="3"] .cap h2 { color: #fff4e6; text-shadow: 0 2px 30px rgba(120,40,80,.6); }
+.stage[data-phase="3"] .cap p { color: #ffe2c8; }
+.stage[data-phase="4"] .cap h2 { color: #eafff8; text-shadow: 0 2px 34px rgba(0,60,60,.7); }
+.stage[data-phase="4"] .cap p { color: #bdeee2; }
+.cap .cta { pointer-events: auto; display: inline-block; margin-top: 22px; background: linear-gradient(135deg, #ffd75e, #f3a01c); color: #2a1c00; font-weight: 900; padding: 13px 30px; border-radius: 40px; text-decoration: none; box-shadow: 0 10px 30px rgba(243,160,28,.45); transition: transform .2s; }
+.cap .cta:hover { transform: translateY(-2px) scale(1.03); }
+
+/* 스크롤 힌트 */
+.scroll-hint { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); z-index: 9; color: #5a3d12; font-weight: 800; font-size: 13px; text-align: center; transition: opacity .6s ease; animation: hintb 1.8s ease-in-out infinite; }
+@keyframes hintb { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 7px); } }
+
+/* 개념 브리지 (여정 → 제품) */
+/* 사막 황혼 → 본문으로 자연스럽게 (밤 사막에서 듀스크로 이어짐) */
+.bridge { text-align: center; padding: 90px 22px 30px; background: linear-gradient(180deg, #1a1206 0%, #150f08 100%); }
+.bridge .kicker { color: var(--accent); font-weight: 800; letter-spacing: .14em; font-size: 13px; text-transform: uppercase; }
+.bridge h2 { font-size: clamp(26px, 5vw, 44px); font-weight: 900; margin: 12px 0 0; }
+.bridge p { color: var(--muted); max-width: 640px; margin: 16px auto 0; line-height: 1.8; }
+
+/* 헤더를 히어로 위에 띄움 — 본문 배경은 style.css의 사막 황혼 그라데이션 사용(여기서 덮지 않음) */
+header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px); }
+
+@media (max-width: 560px) {
+  .journey { height: 560vh; }
+  .palm { width: 84px; left: 8%; } .burj { width: 56px; } .caravan { width: 110px; } .lamp { width: 92px; margin-left: -46px; }
+  .mosque { width: 116px; margin-left: -58px; } .hanok { width: 96px; } .burjarab { width: 44px; }
+  .gwangan { width: 230px; margin-left: -115px; } .dubaiframe { width: 54px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .caravan svg, .palm svg, .oasis .opalm svg, .heat, .stars i, .scroll-hint,
+  .ship, .ship svg, .sea::after, .cmagic, .follower.lead .caura, .falcon, .falcon svg { animation: none !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#apps"><span data-lang="en">Skip to content</span><span data-lang="ko">본문 바로가기</span><span data-lang="ja">本文へスキップ</span><span data-lang="zh">跳到主要内容</span><span data-lang="ar">تخطَّ إلى المحتوى</span></a>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo">A</span> Air Block</a>
+    <nav class="nav-links">
+      <a href="index.html#apps"><span data-lang="en">Apps</span><span data-lang="ko">앱</span><span data-lang="ja">アプリ</span><span data-lang="zh">应用</span><span data-lang="ar">التطبيقات</span></a>
+      <a href="index.html#about"><span data-lang="en">About</span><span data-lang="ko">회사 소개</span><span data-lang="ja">会社概要</span><span data-lang="zh">关于</span><span data-lang="ar">من نحن</span></a>
+      <a href="support.html"><span data-lang="en">Support</span><span data-lang="ko">지원</span><span data-lang="ja">サポート</span><span data-lang="zh">支持</span><span data-lang="ar">الدعم</span></a>
+      <a href="privacy.html"><span data-lang="en">Privacy</span><span data-lang="ko">개인정보</span><span data-lang="ja">プライバシー</span><span data-lang="zh">隐私</span><span data-lang="ar">الخصوصية</span></a>
+      <button class="lang-toggle" aria-label="Change language / 언어 변경">EN</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ===== 시네마틱 여정 ===== -->
+  <section class="journey" aria-label="Air Block journey">
+    <div class="stage" data-phase="0">
+      <svg class="scene-defs" width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+        <linearGradient id="dF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6d59a"/><stop offset="1" stop-color="#e0ad65"/></linearGradient>
+        <linearGradient id="dM" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8b56a"/><stop offset="1" stop-color="#cc8f46"/></linearGradient>
+        <linearGradient id="dN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d99a4f"/><stop offset="1" stop-color="#b3722c"/></linearGradient>
+        <radialGradient id="moonG" cx=".4" cy=".35" r=".75"><stop offset="0" stop-color="#fbfdff"/><stop offset=".7" stop-color="#dce8f5"/><stop offset="1" stop-color="#aac0da"/></radialGradient>
+        <linearGradient id="dragB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fe6ff"/><stop offset=".45" stop-color="#2f8fd6"/><stop offset="1" stop-color="#143f86"/></linearGradient>
+        <linearGradient id="dragBelly" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dff6ff"/><stop offset="1" stop-color="#9fd0ec"/></linearGradient>
+        <radialGradient id="orbG" cx=".4" cy=".35" r=".75"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#bff6e6"/><stop offset="1" stop-color="#37c9a6"/></radialGradient>
+        <linearGradient id="cubeT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd98a"/><stop offset="1" stop-color="#f3a81c"/></linearGradient>
+        <linearGradient id="cubeL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e08a12"/><stop offset="1" stop-color="#9c5e08"/></linearGradient>
+        <linearGradient id="cubeR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7a81c"/><stop offset="1" stop-color="#c47a10"/></linearGradient>
+        <radialGradient id="bulbG" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#fffef0"/><stop offset=".5" stop-color="#ffe27a"/><stop offset="1" stop-color="#f6b81c"/></radialGradient>
+        <radialGradient id="skinG" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#f3d3a6"/><stop offset="1" stop-color="#d9a86f"/></radialGradient>
+        <linearGradient id="hanbokG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fb6d6"/><stop offset="1" stop-color="#2f6f96"/></linearGradient>
+        <!-- 🟫 Claude 픽셀 캐릭터 (공식 Claude Code 픽셀 크리처 — 테라코타, 두 눈·두 귀·네 다리) -->
+        <radialGradient id="claudeAura" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="rgba(199,122,90,.6)"/><stop offset="1" stop-color="rgba(199,122,90,0)"/></radialGradient>
+        <g id="claudePix" shape-rendering="crispEdges">
+          <g fill="#9c5237"><rect x="5" y="1" width="1" height="1"/><rect x="10" y="1" width="1" height="1"/><rect x="4" y="2" width="3" height="1"/><rect x="9" y="2" width="3" height="1"/></g>
+          <g fill="#c2775a"><rect x="4" y="3" width="8" height="1"/><rect x="3" y="4" width="10" height="1"/><rect x="2" y="5" width="12" height="1"/><rect x="2" y="6" width="12" height="1"/><rect x="2" y="7" width="12" height="1"/></g>
+          <g fill="#b06a47"><rect x="2" y="8" width="12" height="1"/><rect x="3" y="9" width="10" height="1"/></g>
+          <g fill="#d98c6a"><rect x="4" y="3" width="2" height="1"/><rect x="3" y="4" width="1" height="1"/><rect x="2" y="5" width="1" height="1"/></g>
+          <g fill="#9c5237"><rect x="2" y="10" width="2" height="2"/><rect x="5" y="10" width="2" height="2"/><rect x="9" y="10" width="2" height="2"/><rect x="12" y="10" width="2" height="2"/></g>
+          <g fill="#241612"><rect x="5" y="4" width="2" height="2"/><rect x="9" y="4" width="2" height="2"/></g>
+        </g>
+        <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.1"/></filter>
+        <!-- 🏜️ 모래 노말맵: 미세 알갱이 + 빛 방향(서쪽 저녁햇살)으로 입체 음영 → 질감 -->
+        <filter id="sandTex" x="-2%" y="-2%" width="104%" height="112%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.009 0.026" numOctaves="3" seed="11" stitchTiles="stitch" result="n"/>
+          <feDiffuseLighting in="n" surfaceScale="3.2" diffuseConstant="1.05" lighting-color="#fff0d0" result="lit"><feDistantLight azimuth="238" elevation="46"/></feDiffuseLighting>
+          <feComposite in="lit" in2="SourceGraphic" operator="in" result="grain"/>
+          <feBlend in="SourceGraphic" in2="grain" mode="multiply" result="b"/>
+          <feComposite in="b" in2="SourceGraphic" operator="in"/>
+        </filter>
+        <!-- 🐫 낙타 털 노말맵: 가는 결 + 부드러운 빛 → 모피 질감 -->
+        <filter id="furTex" x="-8%" y="-8%" width="116%" height="116%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.05 0.14" numOctaves="2" seed="5" result="fn"/>
+          <feDiffuseLighting in="fn" surfaceScale="1.5" diffuseConstant="1.08" lighting-color="#fff" result="fl"><feDistantLight azimuth="248" elevation="58"/></feDiffuseLighting>
+          <feComposite in="fl" in2="SourceGraphic" operator="in" result="fg"/>
+          <feBlend in="SourceGraphic" in2="fg" mode="multiply" result="fb"/>
+          <feComposite in="fb" in2="SourceGraphic" operator="in"/>
+        </filter>
+        <!-- 🌴 야자잎 결 -->
+        <filter id="leafTex" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.02 0.18" numOctaves="2" seed="8" result="ln"/>
+          <feDiffuseLighting in="ln" surfaceScale="1.1" diffuseConstant="1.1" lighting-color="#eafff0" result="ll"><feDistantLight azimuth="250" elevation="62"/></feDiffuseLighting>
+          <feComposite in="ll" in2="SourceGraphic" operator="in" result="lg"/>
+          <feBlend in="SourceGraphic" in2="lg" mode="multiply" result="lb"/>
+          <feComposite in="lb" in2="SourceGraphic" operator="in"/>
+        </filter>
+        <!-- 🔥 사막 열기 아지랑이 — 애니메이션 난류로 지평선 부근을 일렁이게(디스토션) -->
+        <filter id="heatHaze" x="-20%" y="-20%" width="140%" height="160%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.013 0.04" numOctaves="2" seed="3" result="hn">
+            <animate attributeName="baseFrequency" dur="11s" values="0.013 0.034;0.016 0.058;0.013 0.034" repeatCount="indefinite"/>
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="hn" scale="11" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs></svg>
+      <div class="stars"></div>
+      <div class="sun"></div>
+      <!-- 🌙 초승달 -->
+      <div class="moon" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M62,5 A47 47 0 1 0 62 95 A37 37 0 1 1 62 5 Z" fill="url(#moonG)"/><circle cx="45" cy="33" r="5" fill="rgba(150,175,205,.32)"/><circle cx="39" cy="60" r="3.6" fill="rgba(150,175,205,.28)"/><circle cx="52" cy="70" r="2.6" fill="rgba(150,175,205,.25)"/></svg></div>
+      <!-- 🕊️ 갈매기 (부산 바다의 기억) -->
+      <div class="gulls" aria-hidden="true">
+        <div class="gull g1"><svg viewBox="0 0 40 20"><path d="M2,14 C8,4 16,4 20,12 C24,4 32,4 38,14" stroke="#f4f8fb" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="gull g2"><svg viewBox="0 0 40 20"><path d="M2,14 C8,4 16,4 20,12 C24,4 32,4 38,14" stroke="#eef4f9" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="gull g3"><svg viewBox="0 0 40 20"><path d="M2,14 C8,4 16,4 20,12 C24,4 32,4 38,14" stroke="#e8eff5" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="heat"></div>
+
+      <!-- 🌊 부산 바다 (출발점) -->
+      <div class="sea" aria-hidden="true"></div>
+      <!-- 🌉 광안대교 (부산 — 다이아몬드 현수교) -->
+      <div class="gwangan" aria-hidden="true">
+        <svg viewBox="0 0 300 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="gaTower" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef4f8"/><stop offset="1" stop-color="#b9c8d3"/></linearGradient></defs>
+          <rect x="0" y="80" width="300" height="6" fill="#d3dde4"/>
+          <rect x="0" y="86" width="300" height="3" fill="#9fb0bd"/>
+          <g fill="#a9b9c5"><rect x="40" y="86" width="5" height="14"/><rect x="150" y="86" width="5" height="14"/><rect x="258" y="86" width="5" height="14"/></g>
+          <path d="M2,80 Q44,40 84,14 Q150,74 216,14 Q256,40 298,80" stroke="#c2d0db" stroke-width="2.4" fill="none"/>
+          <g stroke="#cdd9e2" stroke-width="1.1"><line x1="20" y1="62" x2="20" y2="80"/><line x1="40" y1="52" x2="40" y2="80"/><line x1="60" y1="34" x2="60" y2="80"/><line x1="108" y1="30" x2="108" y2="80"/><line x1="128" y1="48" x2="128" y2="80"/><line x1="150" y1="62" x2="150" y2="80"/><line x1="172" y1="48" x2="172" y2="80"/><line x1="192" y1="30" x2="192" y2="80"/><line x1="240" y1="34" x2="240" y2="80"/><line x1="260" y1="52" x2="260" y2="80"/><line x1="280" y1="62" x2="280" y2="80"/></g>
+          <g stroke="url(#gaTower)" stroke-width="5" fill="none" stroke-linejoin="round"><path d="M84,12 L96,46 L84,80 L72,46 Z"/><path d="M216,12 L228,46 L216,80 L204,46 Z"/></g>
+        </svg>
+      </div>
+
+      <!-- 🦅 매 (UAE 상징 — 두바이 하늘) -->
+      <div class="falcon" aria-hidden="true">
+        <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M30,15 C21,7 9,5 1,11 C12,10 22,13 30,18 C38,13 48,10 59,11 C51,5 39,7 30,15 Z" fill="#6b4a2c"/>
+          <path d="M27,15 L33,15 L31,25 L29,25 Z" fill="#5a3d22"/>
+          <circle cx="30" cy="14" r="2.6" fill="#4a3018"/>
+          <path d="M32,13 L36,13.5 L32,15 Z" fill="#caa24a"/>
+        </svg>
+      </div>
+
+      <!-- ⛴️ 페리 (부산 바다를 건너) -->
+      <div class="ship" aria-hidden="true">
+        <svg viewBox="0 0 80 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <ellipse cx="40" cy="45" rx="30" ry="3.5" fill="rgba(255,255,255,.18)"/>
+          <line x1="32" y1="16" x2="32" y2="4" stroke="#9aa6ad" stroke-width="1.5"/>
+          <path d="M32,5 L41,8 L32,11 Z" fill="#2f6f96"/>
+          <rect x="44" y="8" width="7" height="11" rx="1.5" fill="#2f6f96"/><rect x="44" y="8" width="7" height="3" rx="1.5" fill="#c23b3b"/>
+          <rect x="26" y="15" width="28" height="15" rx="2" fill="#f4f7fa"/>
+          <g fill="#7fb9d6"><rect x="30" y="19" width="5" height="5" rx="1"/><rect x="38" y="19" width="5" height="5" rx="1"/><rect x="46" y="19" width="5" height="5" rx="1"/></g>
+          <path d="M10,30 L70,30 L62,43 L18,43 Z" fill="#eef2f5"/>
+          <path d="M10,30 L70,30 L67,35 L13,35 Z" fill="#c23b3b"/>
+        </svg>
+      </div>
+
+      <!-- 부르즈 칼리파 -->
+      <div class="burj" data-show="0.62">
+        <svg viewBox="0 0 60 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bj" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfeeff"/><stop offset="1" stop-color="#8fb6dd"/></linearGradient></defs>
+          <polygon points="30,0 33,60 27,60" fill="#cfe6ff"/>
+          <polygon points="27,55 33,55 36,120 24,120" fill="url(#bj)"/>
+          <polygon points="24,118 36,118 40,200 20,200" fill="url(#bj)"/>
+          <polygon points="20,198 40,198 45,300 15,300" fill="url(#bj)"/>
+          <g fill="rgba(255,255,255,.35)"><rect x="22" y="130" width="2" height="160"/><rect x="29" y="125" width="2" height="170"/><rect x="36" y="135" width="2" height="150"/></g>
+        </svg>
+      </div>
+
+      <!-- 🏯 한옥 기와집 (부산 남자의 고향 — 한국 고유, 출발점) -->
+      <div class="hanok" data-show="0.03">
+        <svg viewBox="0 0 172 124" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="hanRoof" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a6c79"/><stop offset="1" stop-color="#323e48"/></linearGradient>
+            <linearGradient id="hanWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1e8d3"/><stop offset="1" stop-color="#d6c8a8"/></linearGradient>
+          </defs>
+          <rect x="20" y="112" width="132" height="11" rx="1" fill="#b9ac8f"/>
+          <rect x="34" y="66" width="104" height="47" fill="url(#hanWall)"/>
+          <g fill="#9c5a32"><rect x="34" y="64" width="8" height="50"/><rect x="82" y="64" width="8" height="50"/><rect x="130" y="64" width="8" height="50"/></g>
+          <rect x="56" y="78" width="22" height="35" fill="#b07a44"/><rect x="94" y="78" width="22" height="35" fill="#b07a44"/>
+          <g stroke="#efe4cc" stroke-width="1" opacity=".65"><line x1="56" y1="90" x2="78" y2="90"/><line x1="56" y1="101" x2="78" y2="101"/><line x1="67" y1="78" x2="67" y2="113"/><line x1="94" y1="90" x2="116" y2="90"/><line x1="94" y1="101" x2="116" y2="101"/><line x1="105" y1="78" x2="105" y2="113"/></g>
+          <rect x="26" y="57" width="120" height="9" fill="#7a3030"/>
+          <g fill="#2f6f55"><rect x="34" y="59" width="6" height="5"/><rect x="58" y="59" width="6" height="5"/><rect x="82" y="59" width="6" height="5"/><rect x="106" y="59" width="6" height="5"/><rect x="130" y="59" width="6" height="5"/></g>
+          <g fill="#2f5f8f"><rect x="46" y="59" width="6" height="5"/><rect x="70" y="59" width="6" height="5"/><rect x="94" y="59" width="6" height="5"/><rect x="118" y="59" width="6" height="5"/></g>
+          <path d="M6,52 C22,64 30,60 40,55 C62,46 110,46 132,55 C142,60 150,64 166,52 C150,40 128,34 86,34 C44,34 22,40 6,52 Z" fill="url(#hanRoof)"/>
+          <path d="M30,40 C50,35 122,35 142,40" stroke="#2a333b" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <g stroke="#454f58" stroke-width="1.2" opacity=".55" fill="none"><path d="M40,55 C42,48 44,42 50,38"/><path d="M62,51 C63,45 64,40 67,36"/><path d="M86,50 L86,35"/><path d="M110,51 C109,45 108,40 105,36"/><path d="M132,55 C130,48 128,42 122,38"/></g>
+        </svg>
+      </div>
+
+      <!-- 🕌 이슬람 사원 (두바이·이슬람 상징) -->
+      <div class="mosque" data-show="0.50">
+        <svg viewBox="0 0 220 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="mqWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4ddac"/><stop offset="1" stop-color="#cca668"/></linearGradient>
+            <linearGradient id="mqDome" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe9a6"/><stop offset=".6" stop-color="#edb94a"/><stop offset="1" stop-color="#c98e2c"/></linearGradient>
+          </defs>
+          <rect x="22" y="46" width="13" height="98" rx="2" fill="url(#mqWall)"/><rect x="21" y="74" width="15" height="4" fill="#b98e4e"/><rect x="21" y="98" width="15" height="4" fill="#b98e4e"/>
+          <path d="M22,46 Q28.5,26 35,46 Z" fill="url(#mqDome)"/><rect x="27" y="30" width="3" height="8" fill="#caa24a"/><circle cx="28.5" cy="27" r="3.2" fill="#edb94a"/>
+          <rect x="185" y="46" width="13" height="98" rx="2" fill="url(#mqWall)"/><rect x="184" y="74" width="15" height="4" fill="#b98e4e"/><rect x="184" y="98" width="15" height="4" fill="#b98e4e"/>
+          <path d="M185,46 Q191.5,26 198,46 Z" fill="url(#mqDome)"/><rect x="190" y="30" width="3" height="8" fill="#caa24a"/><circle cx="191.5" cy="27" r="3.2" fill="#edb94a"/>
+          <rect x="48" y="86" width="124" height="58" rx="2" fill="url(#mqWall)"/>
+          <path d="M70,86 C70,72 82,69 82,69 C82,69 94,72 94,86 Z" fill="url(#mqDome)"/><path d="M126,86 C126,72 138,69 138,69 C138,69 150,72 150,86 Z" fill="url(#mqDome)"/>
+          <path d="M110,30 C113,42 130,46 130,64 C130,80 121,90 110,90 C99,90 90,80 90,64 C90,46 107,42 110,30 Z" fill="url(#mqDome)"/>
+          <path d="M104,40 C100,48 99,58 101,70" stroke="rgba(255,255,255,.42)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <rect x="108.5" y="16" width="3" height="12" fill="#caa24a"/><path d="M110,4 a7 7 0 1 0 3 13 a5.4 5.4 0 1 1 -3 -13 Z" fill="#edb94a"/>
+          <path d="M96,144 L96,116 Q96,102 110,98 Q124,102 124,116 L124,144 Z" fill="#6e4f29"/>
+          <g fill="#7a5a2e"><path d="M60,144 L60,120 Q60,112 67,110 Q74,112 74,120 L74,144 Z"/><path d="M146,144 L146,120 Q146,112 153,110 Q160,112 160,120 L160,144 Z"/></g>
+        </svg>
+      </div>
+
+      <!-- 🏨 부르즈 알 아랍 (돛 모양 — 두바이 상징) -->
+      <div class="burjarab" data-show="0.58">
+        <svg viewBox="0 0 96 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="bawMast" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#dcebf6"/><stop offset="1" stop-color="#a7c6df"/></linearGradient>
+            <linearGradient id="bawSail" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d6e7f4"/></linearGradient>
+          </defs>
+          <path d="M20,198 L20,30 Q21,12 30,6 Q40,14 46,40 Q60,110 56,198 Z" fill="url(#bawMast)"/>
+          <path d="M30,12 Q20,18 20,40 L20,198 L48,198 Q52,110 40,46 Q34,24 30,12 Z" fill="url(#bawSail)"/>
+          <g stroke="#9bbcd6" stroke-width="1" opacity=".5" fill="none"><path d="M22,60 L44,74"/><path d="M22,90 L46,104"/><path d="M22,120 L48,132"/><path d="M22,150 L50,160"/><path d="M44,60 L22,74"/><path d="M46,90 L22,104"/></g>
+          <line x1="20" y1="40" x2="20" y2="198" stroke="#b9d2e6" stroke-width="1.4"/>
+          <ellipse cx="27" cy="11" rx="7" ry="2.6" fill="#cfe0ee"/><circle cx="27" cy="11" r="2" fill="#8fb0cc"/>
+        </svg>
+      </div>
+
+      <!-- 🖼️ 두바이 프레임 (두바이 상징 — 거대 황금 액자) -->
+      <div class="dubaiframe" data-show="0.55">
+        <svg viewBox="0 0 120 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="dfFrame" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f4cf6a"/><stop offset=".5" stop-color="#e0a93a"/><stop offset="1" stop-color="#bd8418"/></linearGradient></defs>
+          <rect x="14" y="20" width="22" height="180" fill="url(#dfFrame)"/>
+          <rect x="84" y="20" width="22" height="180" fill="url(#dfFrame)"/>
+          <rect x="14" y="8" width="92" height="26" fill="url(#dfFrame)"/>
+          <g stroke="#9c6f12" stroke-width="1" opacity=".42" fill="none"><line x1="14" y1="62" x2="36" y2="62"/><line x1="14" y1="104" x2="36" y2="104"/><line x1="14" y1="146" x2="36" y2="146"/><line x1="14" y1="184" x2="36" y2="184"/><line x1="84" y1="62" x2="106" y2="62"/><line x1="84" y1="104" x2="106" y2="104"/><line x1="84" y1="146" x2="106" y2="146"/><line x1="84" y1="184" x2="106" y2="184"/><line x1="25" y1="34" x2="25" y2="200"/><line x1="95" y1="34" x2="95" y2="200"/></g>
+          <rect x="34" y="34" width="2" height="166" fill="rgba(255,255,255,.32)"/><rect x="84" y="34" width="2" height="166" fill="rgba(255,255,255,.32)"/>
+        </svg>
+      </div>
+
+      <!-- 사구 (원경) -->
+      <div class="dunes dune-far">
+        <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M0,120 C260,40 520,180 820,90 C1080,20 1280,150 1440,80 L1440,200 L0,200 Z" fill="url(#dF)" filter="url(#sandTex)"/>
+        </svg>
+      </div>
+      <!-- 사구 (중경) -->
+      <div class="dunes dune-mid">
+        <svg viewBox="0 0 1440 240" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M0,150 C300,70 560,200 900,120 C1150,60 1320,180 1440,110 L1440,240 L0,240 Z" fill="url(#dM)" filter="url(#sandTex)"/>
+        </svg>
+      </div>
+
+      <!-- 야자나무 -->
+      <div class="palm" data-show="0.22">
+        <div class="cast-shadow"></div>
+        <svg viewBox="0 0 120 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M58,170 C56,120 60,80 62,56 C63,46 67,46 68,56 C70,82 66,124 64,170 Z" fill="#7a531f"/>
+          <g fill="#2f9e54" filter="url(#leafTex)">
+            <path d="M62,52 C30,40 12,52 4,70 C26,58 44,60 62,60 Z"/>
+            <path d="M62,52 C94,40 110,54 116,72 C96,58 78,60 62,60 Z"/>
+            <path d="M62,50 C40,22 20,18 8,22 C34,28 48,40 62,58 Z"/>
+            <path d="M62,50 C84,22 104,18 116,24 C90,28 76,40 62,58 Z"/>
+            <path d="M62,48 C58,18 64,4 72,0 C66,18 66,34 64,56 Z"/>
+          </g>
+          <circle cx="62" cy="54" r="6" fill="#caa24a"/>
+        </svg>
+      </div>
+
+      <!-- 호리병 / 지니 램프 -->
+      <div class="lamp" data-show="0.42">
+        <svg viewBox="0 0 130 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="gd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe9a6"/><stop offset=".5" stop-color="#f3b01c"/><stop offset="1" stop-color="#9c6b0e"/></linearGradient></defs>
+          <ellipse cx="62" cy="98" rx="46" ry="12" fill="#b9831a"/>
+          <path d="M24,92 C18,64 40,52 64,52 C92,52 108,66 104,90 C102,100 84,104 64,104 C44,104 27,102 24,92 Z" fill="url(#gd)"/>
+          <path d="M62,52 C60,44 64,40 70,40 L78,40 C74,46 70,50 64,52 Z" fill="url(#gd)"/>
+          <path d="M104,78 C124,72 128,86 116,92 C112,86 110,82 104,84 Z" fill="url(#gd)"/>
+          <ellipse cx="50" cy="72" rx="12" ry="7" fill="rgba(255,255,255,.4)"/>
+          <g class="spark" fill="#fff8e1"><path d="M86,30 l3,9 9,3 -9,3 -3,9 -3,-9 -9,-3 9,-3 z"/></g>
+          <g class="spark" fill="#fff3c4" style="animation-delay:.8s"><path d="M40,34 l2,6 6,2 -6,2 -2,6 -2,-6 -6,-2 6,-2 z"/></g>
+        </svg>
+      </div>
+
+      <!-- 캐러밴: 낙타 + 나그네 -->
+      <div class="caravan" aria-hidden="true">
+        <div class="cast-shadow"></div>
+        <!-- 💻→🧊→💡 맥북에서 비트코인 큐브가 떠올라 아이디어로 변환 -->
+        <div class="ideas" aria-hidden="true">
+          <div class="spark">
+            <svg class="cube" viewBox="0 0 30 34"><path d="M15,2 L27,9 L15,16 L3,9 Z" fill="url(#cubeT)"/><path d="M3,9 L15,16 L15,30 L3,23 Z" fill="url(#cubeL)"/><path d="M27,9 L15,16 L15,30 L27,23 Z" fill="url(#cubeR)"/><text x="15" y="25" font-size="9" font-weight="900" text-anchor="middle" fill="#fff" opacity=".92">₿</text></svg>
+            <svg class="bulbi" viewBox="0 0 26 34"><circle cx="13" cy="13" r="10" fill="url(#bulbG)"/><path d="M8,21 L18,21 L17,26 L9,26 Z" fill="#d3dade"/><rect x="9.5" y="26" width="7" height="2.4" rx="1" fill="#9aa3ab"/><rect x="10.5" y="29" width="5" height="2" rx="1" fill="#9aa3ab"/><path d="M10,10 C11,7 15,7 16,10" stroke="#fff6b0" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <div class="spark">
+            <svg class="cube" viewBox="0 0 30 34"><path d="M15,2 L27,9 L15,16 L3,9 Z" fill="url(#cubeT)"/><path d="M3,9 L15,16 L15,30 L3,23 Z" fill="url(#cubeL)"/><path d="M27,9 L15,16 L15,30 L27,23 Z" fill="url(#cubeR)"/><text x="15" y="25" font-size="9" font-weight="900" text-anchor="middle" fill="#fff" opacity=".92">₿</text></svg>
+            <svg class="bulbi" viewBox="0 0 26 34"><circle cx="13" cy="13" r="10" fill="url(#bulbG)"/><path d="M8,21 L18,21 L17,26 L9,26 Z" fill="#d3dade"/><rect x="9.5" y="26" width="7" height="2.4" rx="1" fill="#9aa3ab"/><rect x="10.5" y="29" width="5" height="2" rx="1" fill="#9aa3ab"/><path d="M10,10 C11,7 15,7 16,10" stroke="#fff6b0" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <div class="spark">
+            <svg class="cube" viewBox="0 0 30 34"><path d="M15,2 L27,9 L15,16 L3,9 Z" fill="url(#cubeT)"/><path d="M3,9 L15,16 L15,30 L3,23 Z" fill="url(#cubeL)"/><path d="M27,9 L15,16 L15,30 L27,23 Z" fill="url(#cubeR)"/><text x="15" y="25" font-size="9" font-weight="900" text-anchor="middle" fill="#fff" opacity=".92">₿</text></svg>
+            <svg class="bulbi" viewBox="0 0 26 34"><circle cx="13" cy="13" r="10" fill="url(#bulbG)"/><path d="M8,21 L18,21 L17,26 L9,26 Z" fill="#d3dade"/><rect x="9.5" y="26" width="7" height="2.4" rx="1" fill="#9aa3ab"/><rect x="10.5" y="29" width="5" height="2" rx="1" fill="#9aa3ab"/><path d="M10,10 C11,7 15,7 16,10" stroke="#fff6b0" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <svg class="camel" viewBox="0 0 196 145" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+          <defs>
+            <linearGradient id="cmlBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cf9a5e"/><stop offset=".5" stop-color="#a36f3c"/><stop offset="1" stop-color="#6e4823"/></linearGradient>
+            <linearGradient id="cmlLegA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a36f3c"/><stop offset="1" stop-color="#5e3c1e"/></linearGradient>
+            <linearGradient id="cmlLegB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a5028"/><stop offset="1" stop-color="#492d15"/></linearGradient>
+            <radialGradient id="cmlSaddle" cx=".5" cy=".25" r=".9"><stop offset="0" stop-color="#e6bb55"/><stop offset="1" stop-color="#a8651a"/></radialGradient>
+          </defs>
+          <!-- 뒤쪽 먼 다리 (어두움) -->
+          <g class="leg b"><rect x="50" y="92" width="9" height="40" rx="4.5" fill="url(#cmlLegB)"/></g>
+          <g class="leg b"><rect x="116" y="92" width="9" height="40" rx="4.5" fill="url(#cmlLegB)"/></g>
+          <!-- 몸통 (단봉낙타) -->
+          <path d="M34,98 C30,82 42,76 54,78 C60,54 80,46 92,56 C100,64 104,82 120,84 L146,86 C160,86 164,96 154,102 C138,108 54,108 34,98 Z" fill="url(#cmlBody)" filter="url(#furTex)"/>
+          <path d="M56,76 C64,58 80,52 90,58 C82,60 70,66 62,80 Z" fill="rgba(255,240,200,.22)"/>
+          <ellipse cx="92" cy="103" rx="56" ry="8" fill="rgba(40,20,0,.22)"/>
+          <!-- 안장 -->
+          <path d="M64,74 C66,62 92,60 98,72 C102,82 92,88 80,88 C70,88 63,82 64,74 Z" fill="url(#cmlSaddle)"/>
+          <path d="M64,80 L98,80 L97,86 L65,86 Z" fill="#8e2f2f"/>
+          <!-- 목 -->
+          <path d="M142,90 C150,66 159,46 165,35 C170,27 179,30 175,42 C170,60 162,82 154,98 Z" fill="url(#cmlBody)"/>
+          <path d="M150,72 C156,54 162,42 167,34" stroke="rgba(255,240,200,.22)" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <!-- 목덜미 갈기털 -->
+          <path d="M150,66 C146,60 148,53 152,55 C150,59 151,63 154,67 Z M157,54 C153,48 155,41 159,43 C157,47 158,51 161,55 Z" fill="#7a4f28"/>
+          <!-- 머리 (단봉낙타 두상) -->
+          <path d="M160,42 C162,30 169,23 178,24 C187,25 191,33 188,42 C190,46 191,52 188,56 C186,61 179,62 174,58 C170,62 164,60 161,54 C157,50 158,46 160,42 Z" fill="url(#cmlBody)"/>
+          <!-- 주둥이/입 -->
+          <path d="M183,50 C189,50 192,54 189,58 C186,61 180,60 179,55 Z" fill="#9c6b3c"/>
+          <path d="M180,55 L189,56.5" stroke="#5e3c1e" stroke-width="1.2" stroke-linecap="round"/>
+          <ellipse cx="186" cy="49" rx="1.5" ry="2.3" fill="#3a2410"/>
+          <!-- 눈 -->
+          <ellipse cx="171" cy="40" rx="2.8" ry="3.4" fill="#fffaf0"/>
+          <circle cx="171.6" cy="41" r="2.1" fill="#241606"/>
+          <circle cx="172.4" cy="40.2" r=".7" fill="#fff"/>
+          <path d="M167,37 C169,35 174,35 176,38" stroke="#5e3c1e" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+          <!-- 귀 -->
+          <path d="M162,30 C159,23 163,18 168,21 C166,26 165,30 164,34 Z" fill="#7a4f28"/>
+          <!-- 꼬리 -->
+          <path d="M34,90 C24,92 20,102 24,110 C28,104 32,98 38,96 Z" fill="#6e4823"/>
+          <!-- 앞쪽 가까운 다리 (밝음) -->
+          <g class="leg a"><rect x="62" y="94" width="9" height="40" rx="4.5" fill="url(#cmlLegA)"/></g>
+          <g class="leg a"><rect x="128" y="94" width="9" height="40" rx="4.5" fill="url(#cmlLegA)"/></g>
+          <!-- 한복(갓+두루마기) 한국 남자 — 안장 위. 엔딩에 다이빙하며 사라짐 -->
+          <g class="rider">
+            <path d="M66,76 C64,60 78,54 82,56 C90,54 98,60 96,76 C94,90 88,92 81,92 C73,92 68,86 66,76 Z" fill="#4a89a8"/>
+            <path d="M78,64 C80,74 80,84 79,90 L83,90 C84,82 84,72 86,64 Z" fill="#f2efe6"/>
+            <circle cx="81" cy="55" r="6.5" fill="#e8c79a"/>
+            <ellipse cx="81" cy="50" rx="13" ry="3" fill="#262626"/>
+            <path d="M76,50 C76,42.5 86,42.5 86,50 Z" fill="#262626"/>
+            <!-- 💻 맥북 에어 (무릎 위 작업) -->
+            <g class="macbook">
+              <path d="M90,87 L111,87 L113,90.5 L88,90.5 Z" fill="#c7ccd2"/>
+              <path d="M93,87 L108.5,87 L106.5,73.5 L95.5,73.5 Z" fill="#aeb6bd"/>
+              <path d="M95,86 L107,86 L105.2,75 L96.8,75 Z" fill="#10202f"/>
+              <rect x="97" y="76.5" width="8.5" height="8" rx="1" fill="#2f7fb0"/>
+              <rect x="97" y="76.5" width="8.5" height="3" rx="1" fill="#7fd0ff" opacity=".8"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <!-- 🟠 함께 떠난 Claude 동료들 (개발자 혼자, 오직 Claude와 함께 — 뒤따르는 디즈니풍 메인 캐릭터) -->
+      <div class="followers" aria-hidden="true">
+        <!-- 뒤(먼) → 앞(가까운) 순서: 마지막 .lead가 메인 캐릭터로 맨 앞·맨 위 -->
+        <div class="follower" style="--i:6"><svg viewBox="1.5 0.5 13 12.2" xmlns="http://www.w3.org/2000/svg"><use href="#claudePix"/></svg></div>
+        <div class="follower" style="--i:5"><svg viewBox="1.5 0.5 13 12.2" xmlns="http://www.w3.org/2000/svg"><use href="#claudePix"/></svg></div>
+        <div class="follower" style="--i:4"><svg viewBox="1.5 0.5 13 12.2" xmlns="http://www.w3.org/2000/svg"><use href="#claudePix"/></svg></div>
+        <div class="follower" style="--i:3"><svg viewBox="1.5 0.5 13 12.2" xmlns="http://www.w3.org/2000/svg"><use href="#claudePix"/></svg></div>
+        <div class="follower" style="--i:2"><svg viewBox="1.5 0.5 13 12.2" xmlns="http://www.w3.org/2000/svg"><use href="#claudePix"/></svg></div>
+        <div class="follower lead" style="--i:1">
+          <svg viewBox="-4 -6 24 18.5" xmlns="http://www.w3.org/2000/svg">
+            <ellipse class="caura" cx="8" cy="7" rx="14" ry="13" fill="url(#claudeAura)"/>
+            <use href="#claudePix"/>
+            <g class="cmagic" fill="#fff3d6"><path d="M16,-3 l1.1,3.1 3.1,1.1 -3.1,1.1 -1.1,3.1 -1.1,-3.1 -3.1,-1.1 3.1,-1.1 z"/></g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 다이빙하는 나그네 (엔딩: 오아시스에 풍덩) -->
+      <div class="diver" aria-hidden="true">
+        <svg viewBox="0 0 72 62" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16,46 C8,48 3,53 0,60" stroke="#4a89a8" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M12,40 C22,30 38,22 54,18 L58,28 C42,32 26,40 18,50 Z" fill="#4a89a8"/>
+          <path d="M30,31 L48,25 L50,31 L32,37 Z" fill="#f2efe6"/>
+          <path d="M50,20 C58,15 66,15 71,19" stroke="#e8c79a" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <circle cx="53" cy="19" r="7" fill="#e8c79a"/>
+          <circle cx="53" cy="11" r="3.2" fill="#262626"/>
+        </svg>
+      </div>
+
+      <!-- 오아시스 -->
+      <div class="oasis" data-show="0.80">
+        <div class="opalm l"><svg viewBox="0 0 120 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M58,170 C56,120 60,80 62,56 C63,46 67,46 68,56 C70,82 66,124 64,170 Z" fill="#6a4a1c"/><g fill="#2f9e54"><path d="M62,52 C30,40 12,52 4,70 C26,58 44,60 62,60 Z"/><path d="M62,52 C94,40 110,54 116,72 C96,58 78,60 62,60 Z"/><path d="M62,50 C40,22 20,18 8,22 C34,28 48,40 62,58 Z"/><path d="M62,50 C84,22 104,18 116,24 C90,28 76,40 62,58 Z"/></g></svg></div>
+        <div class="opalm r"><svg viewBox="0 0 120 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M58,170 C56,120 60,80 62,56 C63,46 67,46 68,56 C70,82 66,124 64,170 Z" fill="#6a4a1c"/><g fill="#39b562"><path d="M62,52 C30,40 12,52 4,70 C26,58 44,60 62,60 Z"/><path d="M62,52 C94,40 110,54 116,72 C96,58 78,60 62,60 Z"/><path d="M62,50 C40,22 20,18 8,22 C34,28 48,40 62,58 Z"/><path d="M62,50 C84,22 104,18 116,24 C90,28 76,40 62,58 Z"/></g></svg></div>
+        <div class="water"></div>
+        <div class="splash" aria-hidden="true"><i></i><i></i></div>
+        <div class="splashburst" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="swimmer" aria-hidden="true">
+          <svg viewBox="0 0 92 46" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="46" cy="37" rx="40" ry="7" fill="rgba(255,255,255,.2)"/>
+            <path d="M12,30 C32,22 60,22 80,29" stroke="#4a89a8" stroke-width="9" fill="none" stroke-linecap="round"/>
+            <path d="M46,26 C52,12 62,9 70,13" stroke="#e8c79a" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <circle cx="80" cy="27" r="8" fill="#e8c79a"/>
+            <circle cx="80" cy="19" r="3.2" fill="#262626"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 🐉 청룡 승천 (여의주 물고 주인공을 등에 태우고 하늘로) -->
+      <div class="dragon" aria-hidden="true">
+        <svg viewBox="0 0 280 300" xmlns="http://www.w3.org/2000/svg">
+          <g class="coil">
+            <path d="M150,292 C100,262 196,228 158,188 C124,152 210,128 170,90 C146,66 178,52 160,42" stroke="url(#dragB)" stroke-width="26" fill="none" stroke-linecap="round"/>
+            <path d="M150,292 C100,262 196,228 158,188 C124,152 210,128 170,90 C146,66 178,52 160,42" stroke="url(#dragBelly)" stroke-width="9" fill="none" stroke-linecap="round" opacity=".5"/>
+            <g fill="#e8453f" opacity=".9"><path d="M150,252 l-11,-15 15,4 z"/><path d="M170,214 l-15,-8 12,-7 z"/><path d="M150,176 l-13,-13 15,2 z"/><path d="M178,140 l-15,-6 11,-9 z"/><path d="M158,104 l-13,-13 15,2 z"/></g>
+            <g fill="url(#dragB)"><path d="M198,224 C212,222 222,230 218,241 C211,237 205,235 199,237 Z"/><path d="M118,158 C104,156 96,164 100,175 C107,171 113,169 119,171 Z"/></g>
+            <g stroke="#e6f7ff" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M218,239 l5,5 M221,236 l5,4 M100,173 l-5,5 M97,170 l-5,4"/></g>
+            <g class="dhead">
+              <path d="M150,54 C142,38 150,21 166,21 C182,21 192,33 186,49 C194,51 198,61 190,67 C184,75 170,75 162,67 C154,71 146,63 150,54 Z" fill="url(#dragB)"/>
+              <path d="M160,23 C156,9 148,5 144,10 C150,12 153,17 156,25 Z" fill="#1f6fae"/>
+              <path d="M173,21 C173,7 167,1 161,5 C166,9 168,14 169,23 Z" fill="#1f6fae"/>
+              <ellipse cx="166" cy="41" rx="3.4" ry="4" fill="#fff"/><circle cx="167" cy="42" r="2.2" fill="#0a2a4a"/>
+              <path d="M188,53 C204,49 214,57 225,51" stroke="#eafaff" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+              <path d="M186,61 C200,61 211,69 221,67" stroke="#cfeeff" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M184,63 C190,67 198,67 202,63" stroke="#0a3a5a" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </g>
+            <circle class="orb" cx="207" cy="65" r="11" fill="url(#orbG)"/>
+            <circle class="orb" cx="207" cy="65" r="11" fill="none" stroke="#fff" stroke-width="1" opacity=".6"/>
+            <!-- 작은 Claude 픽셀 동료 (개발자 뒤에 함께 승천) -->
+            <g transform="translate(128,141)"><use href="#claudePix" transform="scale(.72)"/></g>
+            <!-- 등에 탄 한복 주인공 -->
+            <g transform="translate(150,150)">
+              <path d="M-8,16 C-10,2 4,-4 8,-2 C16,-4 24,2 22,16 C20,30 12,32 6,32 C-2,32 -6,26 -8,16 Z" fill="url(#hanbokG)"/>
+              <path d="M4,4 C6,14 6,24 5,30 L9,30 C10,22 10,12 12,4 Z" fill="#f2efe6"/>
+              <circle cx="7" cy="-3" r="7" fill="url(#skinG)"/>
+              <ellipse cx="7" cy="-9" rx="13" ry="3" fill="#262626"/><path d="M1,-9 C1,-17 13,-17 13,-9 Z" fill="#262626"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <!-- 사구 (근경) -->
+      <div class="dunes dune-near">
+        <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M0,140 C320,60 620,180 980,110 C1200,70 1340,160 1440,120 L1440,220 L0,220 Z" fill="url(#dN)" filter="url(#sandTex)"/>
+        </svg>
+      </div>
+
+      <!-- 캡션 -->
+      <!-- 자연환경 오버레이 -->
+      <div class="sandstorm"><div class="haze"></div><div class="grains"></div></div>
+      <div class="rain"></div>
+      <div class="vignette"></div>
+
+      <div class="caps">
+        <div class="cap on" data-cap="0">
+          <h2><span data-lang="en">From nothing</span><span data-lang="ko">무(無)에서</span><span data-lang="ja">無(む)から</span><span data-lang="zh">从无开始</span><span data-lang="ar">من العدم</span></h2>
+          <p><span data-lang="en">Turning imagination into reality — it began by the sea of Busan.</span><span data-lang="ko">상상을 현실로 — 부산 바다에서 출발했습니다.</span><span data-lang="ja">想像を現実に — 釜山の海から始まりました。</span><span data-lang="zh">将想象变为现实 —— 从釜山的大海启程。</span><span data-lang="ar">نحوّل الخيال إلى واقع — انطلقنا من بحر بوسان.</span></p>
+        </div>
+        <div class="cap" data-cap="1">
+          <h2><span data-lang="en">Step by step</span><span data-lang="ko">한 걸음, 또 한 걸음</span><span data-lang="ja">一歩、また一歩</span><span data-lang="zh">一步，又一步</span><span data-lang="ar">خطوة، ثم خطوة</span></h2>
+          <p><span data-lang="en">Even the desert has a path — if you never stop.</span><span data-lang="ko">사막에도 길은 있습니다. 멈추지 않으면.</span><span data-lang="ja">砂漠にも道はある。立ち止まらなければ。</span><span data-lang="zh">沙漠中也有路 —— 只要你不停下。</span><span data-lang="ar">حتى الصحراء لها طريق — ما دمت لا تتوقف.</span></p>
+        </div>
+        <div class="cap" data-cap="2">
+          <h2><span data-lang="en">Challenge opens the way</span><span data-lang="ko">도전이 길을 연다</span><span data-lang="ja">挑戦が道を拓く</span><span data-lang="zh">挑战开辟道路</span><span data-lang="ar">التحدّي يفتح الطريق</span></h2>
+          <p><span data-lang="en">Beyond fear lies possibility.</span><span data-lang="ko">두려움 너머에 가능성이 있습니다.</span><span data-lang="ja">恐れの向こうに可能性がある。</span><span data-lang="zh">恐惧之外，皆是可能。</span><span data-lang="ar">خلف الخوف تكمن الإمكانية.</span></p>
+        </div>
+        <div class="cap" data-cap="3">
+          <h2><span data-lang="en">Born in Dubai</span><span data-lang="ko">두바이에서 시작되다</span><span data-lang="ja">ドバイから始まる</span><span data-lang="zh">始于迪拜</span><span data-lang="ar">وُلدت في دبي</span></h2>
+          <p><span data-lang="en">Like a city raised from the sand — Air Block L.L.C-FZ</span><span data-lang="ko">사막 위에 세워진 도시처럼 — Air Block L.L.C-FZ</span><span data-lang="ja">砂上に築かれた都市のように — Air Block L.L.C-FZ</span><span data-lang="zh">如同从沙漠中崛起的城市 —— Air Block L.L.C-FZ</span><span data-lang="ar">كمدينة نهضت من الرمال — Air Block L.L.C-FZ</span></p>
+        </div>
+        <div class="cap" data-cap="4">
+          <h2><span data-lang="en">...into Reality</span><span data-lang="ko">유(有)를 창조하다</span><span data-lang="ja">有(ゆう)を創造する</span><span data-lang="zh">创造有形</span><span data-lang="ar">نخلق الوجود</span></h2>
+          <p><span data-lang="en">We found the oasis. A growing family of AI apps, one pioneering spirit — now, time to dive in.</span><span data-lang="ko">오아시스를 찾았습니다. 계속 늘어나는 AI 앱들, 하나의 도전정신 — 이제 마음껏 뛰어들 시간.</span><span data-lang="ja">オアシスを見つけた。増え続けるAIアプリ、一つの挑戦の精神 — さあ、飛び込もう。</span><span data-lang="zh">我们找到了绿洲。不断壮大的 AI 应用家族，一种开拓精神 —— 现在，纵身跃入。</span><span data-lang="ar">وجدنا الواحة. عائلة متنامية من تطبيقات الذكاء الاصطناعي وروح ريادة واحدة — والآن، حان وقت الغطس.</span></p>
+          <a class="cta" href="#apps"><span data-lang="en">Explore the apps ↓</span><span data-lang="ko">앱 둘러보기 ↓</span><span data-lang="ja">アプリを見る ↓</span><span data-lang="zh">浏览应用 ↓</span><span data-lang="ar">استكشف التطبيقات ↓</span></a>
+        </div>
+      </div>
+
+      <!-- 승천 캡션 (부산 바다 → 두바이 사막 → 청룡 승천) -->
+      <div class="cap-ascend" aria-hidden="false">
+        <h2><span data-lang="en">Ascend</span><span data-lang="ko">승천 (昇天)</span><span data-lang="ja">昇天</span><span data-lang="zh">腾空升天</span><span data-lang="ar">الصعود</span></h2>
+        <p><span data-lang="en">From the sea of Busan to the sands of Dubai — and up we rise, like a blue dragon bearing the wish-pearl.</span><span data-lang="ko">부산 바다에서 두바이 사막으로 — 여의주를 문 청룡과 함께 하늘로 오릅니다.</span><span data-lang="ja">釜山の海からドバイの砂へ — 如意宝珠を抱く青龍とともに天へ昇る。</span><span data-lang="zh">从釜山的海，到迪拜的沙 —— 与口衔如意宝珠的青龙一同腾空升天。</span><span data-lang="ar">من بحر بوسان إلى رمال دبي — ونصعد عاليًا، كتنينٍ أزرق يحمل لؤلؤة الأمنية.</span></p>
+      </div>
+
+      <div class="scroll-hint"><span data-lang="en">Scroll ↓</span><span data-lang="ko">스크롤 ↓</span><span data-lang="ja">スクロール ↓</span><span data-lang="zh">滚动 ↓</span><span data-lang="ar">مرّر ↓</span></div>
+    </div>
+  </section>
+
+  <!-- 개념 브리지 -->
+  <section class="bridge">
+    <div class="kicker" data-lang="en">Imagination into reality · From nothing, something</div>
+    <div class="kicker" data-lang="ko">상상을 현실로 · 무에서 유로</div>
+    <div class="kicker" data-lang="ja">想像を現実に · 無から有へ</div>
+    <div class="kicker" data-lang="zh">将想象变为现实 · 从无到有</div>
+    <div class="kicker" data-lang="ar">الخيال إلى واقع · من العدم إلى الوجود</div>
+    <h2>
+      <span data-lang="en">At the end of the desert, <span class="grad"><span class="app-count">12</span> AI apps</span> — and growing</span>
+      <span data-lang="ko">사막을 건넌 끝에, <span class="grad">AI 앱 <span class="app-count">12</span>종</span> — 그리고 계속 늘어납니다</span>
+      <span data-lang="ja">砂漠を越えた先に、<span class="grad"><span class="app-count">12</span> のAIアプリ</span> — そして増え続けます</span>
+      <span data-lang="zh">穿越沙漠之后，<span class="grad"><span class="app-count">12</span> 款 AI 应用</span> —— 仍在不断增加</span>
+      <span data-lang="ar">في نهاية الصحراء، <span class="grad"><span class="app-count">12</span> تطبيق ذكاء اصطناعي</span> — وفي ازدياد</span>
+    </h2>
+    <p>
+      <span data-lang="en">Built by a small Dubai company driven by one thing: a pioneering spirit. AI mobile apps that make complex data clear to everyone — that is the oasis we found.</span>
+      <span data-lang="ko">두바이의 작은 회사가 도전정신 하나로 만들었습니다. 복잡한 데이터를 누구나 한눈에 이해하는 AI 모바일 앱 — 그것이 우리가 찾은 오아시스입니다.</span>
+      <span data-lang="ja">ドバイの小さな会社が、挑戦の精神だけで作りました。複雑なデータを誰もが一目で理解できるAIモバイルアプリ — それが私たちの見つけたオアシスです。</span>
+      <span data-lang="zh">由迪拜的一家小公司凭借一股开拓精神打造。让复杂数据人人一目了然的 AI 移动应用 —— 这就是我们找到的绿洲。</span>
+      <span data-lang="ar">صنعتها شركة صغيرة في دبي بدافع واحد: روح الريادة. تطبيقات ذكاء اصطناعي تجعل البيانات المعقّدة واضحة للجميع — تلك هي الواحة التي وجدناها.</span>
+    </p>
+  </section>
+
+
+  <section id="apps">
+    <div class="wrap">
+      <h2><span data-lang="en">Our Apps</span><span data-lang="ko">앱</span><span data-lang="ja">アプリ</span><span data-lang="zh">应用</span><span data-lang="ar">تطبيقاتنا</span></h2>
+      <p class="section-sub">
+        <span data-lang="en">Available across Android and iOS.</span>
+        <span data-lang="ko">Android · iOS 크로스플랫폼으로 제공됩니다.</span>
+        <span data-lang="ja">Android・iOS のクロスプラットフォームで提供。</span>
+        <span data-lang="zh">支持 Android 与 iOS 跨平台。</span>
+        <span data-lang="ar">متوفرة على Android و iOS.</span>
+      </p>
+
+      <!-- 데이터 기반 카탈로그 (assets/apps.js + catalog.js가 렌더, 앱 추가 시 자동 반영) -->
+      <div id="appCatalog" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- 앱 상세 모달 (catalog.js가 채움) -->
+  <div id="appModal" class="appmodal" role="dialog" aria-modal="true" hidden>
+    <div class="appmodal-backdrop" data-close></div>
+    <div class="appmodal-box" role="document">
+      <button class="appmodal-close" data-close aria-label="Close">✕</button>
+      <div class="appmodal-body"></div>
+    </div>
+  </div>
+
+  <section id="about" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <h2><span data-lang="en">About Air Block</span><span data-lang="ko">회사 소개</span><span data-lang="ja">会社概要</span><span data-lang="zh">关于 Air Block</span><span data-lang="ar">عن Air Block</span></h2>
+      <p style="max-width:720px;color:var(--muted)">
+        <span data-lang="en">Air Block L.L.C-FZ is a software company registered in the Meydan Free Zone, Dubai, U.A.E. We design and publish AI-powered finance, market, and lifestyle mobile apps, with a focus on making complex data simple and accessible to everyone.</span>
+        <span data-lang="ko">Air Block L.L.C-FZ는 아랍에미리트 두바이 메이단 프리존에 등록된 소프트웨어 회사로, AI 기반의 금융·시장·생활 모바일 앱을 개발·배포합니다. 데이터를 누구나 이해하기 쉬운 형태로 전달하는 것을 목표로 합니다.</span>
+        <span data-lang="ja">Air Block L.L.C-FZ は、アラブ首長国連邦ドバイのメイダン・フリーゾーンに登録されたソフトウェア会社です。AIを活用した金融・市場・生活向けモバイルアプリを開発・配信し、複雑なデータを誰にとっても分かりやすく届けることを目指しています。</span>
+        <span data-lang="zh">Air Block L.L.C-FZ 是一家注册于阿联酋迪拜迈丹自由区的软件公司。我们开发并发布由 AI 驱动的金融、市场与生活类移动应用，致力于让复杂数据变得人人易懂。</span>
+        <span data-lang="ar">Air Block L.L.C-FZ شركة برمجيات مسجّلة في منطقة ميدان الحرة بدبي، الإمارات. نصمّم وننشر تطبيقات جوّال مدعومة بالذكاء الاصطناعي للمال والأسواق ونمط الحياة، مع التركيز على جعل البيانات المعقّدة بسيطة وفي متناول الجميع.</span>
+      </p>
+      <div class="box" style="max-width:520px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-top:22px">
+        <div style="color:var(--muted);font-size:14px;line-height:1.9">
+          <strong style="color:var(--text)">Air Block L.L.C-FZ</strong><br/>
+          Meydan Grandstand, 6th floor, Meydan Road,<br/>Nad Al Sheba, Dubai, U.A.E.<br/>
+          <span data-lang="ko">사업자 라이선스</span><span data-lang="en">License No.</span>: 2649228.01<br/>
+          <a href="mailto:info@airblockfz.com">info@airblockfz.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="contact-band">
+      <div class="cb-label">
+        <span data-lang="en">Get in touch</span><span data-lang="ko">문의하기</span><span data-lang="ja">お問い合わせ</span><span data-lang="zh">联系我们</span><span data-lang="ar">تواصل معنا</span>
+      </div>
+      <a class="cb-mail" href="mailto:info@airblockfz.com">info@airblockfz.com</a>
+    </div>
+  </div>
+  <div class="wrap foot-grid">
+    <div class="company">
+      <div class="brand" style="font-size:16px;margin-bottom:8px"><span class="logo" style="width:26px;height:26px;font-size:14px">A</span> Air Block</div>
+      <div>Air Block L.L.C-FZ · Dubai, U.A.E.<br/><a href="mailto:info@airblockfz.com">info@airblockfz.com</a></div>
+    </div>
+    <div>
+      <div style="margin-bottom:8px"><a href="index.html#apps"><span data-lang="ko">앱</span><span data-lang="en">Apps</span></a></div>
+      <div style="margin-bottom:8px"><a href="support.html"><span data-lang="ko">지원 / 문의</span><span data-lang="en">Support</span></a></div>
+      <div style="margin-bottom:8px"><a href="privacy.html"><span data-lang="ko">개인정보처리방침</span><span data-lang="en">Privacy Policy</span></a></div>
+      <div><a href="terms.html"><span data-lang="ko">이용약관</span><span data-lang="en">Terms of Service</span></a></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="built-with">
+      <span class="bw-label">
+        <span data-lang="en">All apps designed &amp; built with Claude AI</span>
+        <span data-lang="ko">모든 앱은 Claude AI로 설계·제작되었습니다</span>
+        <span data-lang="ja">すべてのアプリは Claude AI で設計・開発されています</span>
+        <span data-lang="zh">所有应用均由 Claude AI 设计与开发</span>
+        <span data-lang="ar">صُمّمت جميع التطبيقات وطُوّرت باستخدام Claude AI</span>
+      </span>
+      <a class="partner-chip" href="https://www.anthropic.com" target="_blank" rel="noopener" aria-label="Claude by Anthropic">
+        <svg width="22" height="22" viewBox="0 0 100 100" aria-hidden="true">
+          <g fill="#d97757">
+            <path d="M50 6 L57 40 L50 50 L43 40 Z"/>
+            <path d="M50 94 L43 60 L50 50 L57 60 Z"/>
+            <path d="M6 50 L40 43 L50 50 L40 57 Z"/>
+            <path d="M94 50 L60 57 L50 50 L60 43 Z"/>
+            <path d="M19 19 L46 39 L50 50 L39 46 Z"/>
+            <path d="M81 81 L54 61 L50 50 L61 54 Z"/>
+            <path d="M81 19 L61 46 L50 50 L54 39 Z"/>
+            <path d="M19 81 L39 54 L50 50 L46 61 Z"/>
+          </g>
+        </svg>
+        <span>Claude<span class="pc-sub"> · by Anthropic</span></span>
+      </a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="disclaimer">
+      <div class="disc-title">
+        <span data-lang="en">Disclaimer</span><span data-lang="ko">면책 고지</span><span data-lang="ja">免責事項</span><span data-lang="zh">免责声明</span><span data-lang="ar">إخلاء المسؤولية</span>
+      </div>
+      <p>
+        <span data-lang="en">All apps by Air Block L.L.C-FZ are tools for general information and self-checking only. <strong>Our finance &amp; market apps (US Stock AI, KOSPI AI, Coin AI, BTC Signal, FX AI, Commodities AI, Inflation AI, Dubai Real Estate AI, Seoul Apt AI) do not provide investment advice or recommendations to buy or sell</strong>; all decisions and outcomes are solely your own. <strong>Our health apps (Dental AI, Toilet AI) are not medical devices and do not replace professional diagnosis or treatment</strong> — consult a qualified professional for any symptom. Data is sourced from third parties and may be delayed or inaccurate. Some advanced features are offered via auto-renewing subscriptions that can be canceled anytime in your store account.</span>
+        <span data-lang="ko">Air Block L.L.C-FZ의 모든 앱은 일반적인 정보 제공·셀프 체크용 도구입니다. <strong>금융·시장 앱(US Stock AI·KOSPI AI·Coin AI·BTC Signal·FX AI·Commodities AI·Inflation AI·Dubai Real Estate AI·Seoul Apt AI)은 투자 자문이나 매수·매도 권유를 제공하지 않으며</strong>, 모든 투자 판단과 그 결과의 책임은 이용자 본인에게 있습니다. <strong>건강 앱(Dental AI·Toilet AI)은 의료기기가 아니며 전문적인 진단·치료를 대체하지 않습니다</strong> — 증상이 있으면 반드시 전문가의 진료를 받으세요. 데이터는 제3자 출처에 기반해 지연·오류가 있을 수 있습니다. 일부 고급 기능은 자동 갱신 구독으로 제공되며 스토어 계정에서 언제든 해지할 수 있습니다.</span>
+        <span data-lang="ja">Air Block L.L.C-FZ のすべてのアプリは一般的な情報提供・セルフチェック用のツールです。<strong>金融・市場アプリ（US Stock AI・KOSPI AI・Coin AI・BTC Signal・FX AI・Commodities AI・Inflation AI・Dubai Real Estate AI・Seoul Apt AI）は投資助言や売買推奨を提供しません</strong>。すべての判断と結果は利用者ご自身の責任です。<strong>健康アプリ（Dental AI・Toilet AI）は医療機器ではなく、専門的な診断・治療に代わるものではありません</strong> — 症状がある場合は専門家に相談してください。データは第三者によるもので遅延・誤りがある場合があります。一部の高度な機能は自動更新サブスクリプションで提供され、ストアアカウントでいつでも解約できます。</span>
+        <span data-lang="zh">Air Block L.L.C-FZ 的所有应用仅为一般信息与自我检查工具。<strong>金融与市场类应用（US Stock AI、KOSPI AI、Coin AI、BTC Signal、FX AI、Commodities AI、Inflation AI、Dubai Real Estate AI、Seoul Apt AI）不提供投资建议或买卖推荐</strong>，一切决策与结果由您自行承担。<strong>健康类应用（Dental AI、Toilet AI）并非医疗器械，不能替代专业诊断或治疗</strong>——如有症状请咨询专业人士。数据来自第三方，可能存在延迟或误差。部分高级功能通过自动续订订阅提供，可随时在商店账户中取消。</span>
+        <span data-lang="ar">جميع تطبيقات Air Block L.L.C-FZ هي أدوات للمعلومات العامة والفحص الذاتي فقط. <strong>تطبيقات المال والأسواق (US Stock AI، KOSPI AI، Coin AI، BTC Signal، FX AI، Commodities AI، Inflation AI، Dubai Real Estate AI، Seoul Apt AI) لا تقدّم نصائح استثمارية أو توصيات بالبيع أو الشراء</strong>؛ وجميع القرارات ونتائجها على مسؤوليتك وحدك. <strong>تطبيقات الصحة (Dental AI، Toilet AI) ليست أجهزة طبية ولا تحل محل التشخيص أو العلاج المهني</strong> — استشر مختصًا عند أي عرض. البيانات من مصادر خارجية وقد تتأخر أو تحتوي على أخطاء. تُقدَّم بعض الميزات المتقدمة عبر اشتراكات تتجدد تلقائيًا ويمكن إلغاؤها في أي وقت من حساب المتجر.</span>
+      </p>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:24px;font-size:13px">© <span id="year">2026</span> Air Block L.L.C-FZ. All rights reserved.</div>
+</footer>
+</body>
+</html>
