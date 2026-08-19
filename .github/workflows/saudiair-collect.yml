@@ -1,6 +1,6 @@
 
 #   🔐 **키가 앱 밖에 사는 자리.** 이 워크플로만 OW_KEY 를 안다(리포 Secrets).
-#   매시 18개 도시를 수집해 `uaeair/*.json` 으로 커밋하면 GitHub Pages 가 그대로 서빙한다.
+#   매시 12개 도시를 수집해 `saudiair/*.json` 으로 커밋하면 GitHub Pages 가 그대로 서빙한다.
 #
 # 설치:
 #   1) airblockfz-website 리포에 이 파일을 `.github/workflows/uaeair-collect.yml` 로 넣는다
@@ -10,10 +10,10 @@
 #
 # 🚨 실패한 도시는 이전 파일이 그대로 남는다(수집기가 그렇게 만들어져 있다).
 # 🚨 변경이 없으면 커밋하지 않는다 — 빈 커밋으로 히스토리를 더럽히지 않는다.
-name: UAE Air & Dust — collect
+name: Saudi Air & Dust — collect
 on:
   schedule:
-    - cron: '7 * * * *'      # 매시 7분 (정각은 혼잡하다)
+    - cron: '19 * * * *'      # 매시 19분 (UAE 수집과 겹치지 않게 띄운다)
   workflow_dispatch:          # 손으로도 돌릴 수 있게
 
 permissions:
@@ -29,15 +29,15 @@ jobs:
       - name: 수집
         env:
           OW_KEY: ${{ secrets.OW_KEY }}
-        run: node collector/collect.mjs uaeair collector/uaeair/cities.js
+        run: node collector/collect.mjs saudiair collector/saudiair/cities.js
       - name: 변경 있으면 커밋
         run: |
-          git config user.name  "uaeair-collector"
+          git config user.name  "saudiair-collector"
           git config user.email "actions@users.noreply.github.com"
-          git add uaeair
+          git add saudiair
           if git diff --cached --quiet; then
             echo "변경 없음 — 커밋 생략"
           else
-            git commit -m "uaeair: $(date -u '+%Y-%m-%d %H:%M') UTC 수집"
+            git commit -m "saudiair: $(date -u '+%Y-%m-%d %H:%M') UTC 수집"
             git push
           fi

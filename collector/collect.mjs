@@ -140,8 +140,12 @@ const ENGINE = {};
        배포 — 웹 저장소의 `collector/` (엔진을 **같은 폴더에 복사해 둔다**)
      그래서 자기 폴더를 먼저 보고, 없으면 앱 폴더를 본다. 둘 다 없으면 **바로 죽는다** —
      조용히 넘어가면 지도 점이 전부 회색인 채로 배포된다(그 사고를 이미 겪었다). */
+  /* 🏭 나라가 둘 이상이면 `collector/<나라>/{cities.js,region.js}` 로 갈라 둔다.
+     그래서 **도시표 옆을 가장 먼저 본다** — 그 폴더가 그 나라의 정본이다.
+     (2026-08-19 사우디를 붙이며: 여기를 안 고치면 사우디 수집이 UAE 임계값으로 판정된다.) */
+  const NEAR = path.dirname(path.resolve(CITIES_JS));
   const find = (f) => {
-    for (const p of [path.join(HERE, f), path.join(HERE, '../www/' + f), path.join(HERE, '../www/src/' + path.basename(f))]) {
+    for (const p of [path.join(NEAR, f), path.join(HERE, f), path.join(HERE, '../www/' + f), path.join(HERE, '../www/src/' + path.basename(f))]) {
       if (fs.existsSync(p)) return p;
     }
     throw new Error('수집기가 엔진을 못 찾았다: ' + f);
