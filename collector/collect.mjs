@@ -12,6 +12,7 @@
  * 사용: OW_KEY=xxx node collect.mjs <출력폴더> [<도시표.js>]
  */
 import fs from 'fs';
+import { createRequire } from 'node:module';
 import path from 'path';
 
 const KEY = process.env.OW_KEY;
@@ -128,8 +129,36 @@ function roll (prev, weather, air) {
   return { hourly, wHourly };
 }
 
+/* 🏭 **앱과 같은 엔진으로 계산한다.** 수집기가 따로 구현하면 지도 색과 카드 값이 서로 다른 말을 한다.
+   `air-core`/`dust-core` 는 브라우저·Node 겸용 IIFE 라 전역 하나만 주면 그대로 돌아간다.
+   `region.js` 에서 임계값을 읽어 `APP_CFG` 자리에 꽂아 준다 — 나라를 바꿔도 이 파일은 그대로다. */
+const ENGINE = {};
+{
+  const HERE = path.dirname(new URL(import.meta.url).pathname);
+  /* 🚨 실행 위치가 두 곳이다:
+       개발 — `utility/<앱>/collector/` (엔진은 `../www/` 에 있다)
+       배포 — 웹 저장소의 `collector/` (엔진을 **같은 폴더에 복사해 둔다**)
+     그래서 자기 폴더를 먼저 보고, 없으면 앱 폴더를 본다. 둘 다 없으면 **바로 죽는다** —
+     조용히 넘어가면 지도 점이 전부 회색인 채로 배포된다(그 사고를 이미 겪었다). */
+  const find = (f) => {
+    for (const p of [path.join(HERE, f), path.join(HERE, '../www/' + f), path.join(HERE, '../www/src/' + path.basename(f))]) {
+      if (fs.existsSync(p)) return p;
+    }
+    throw new Error('수집기가 엔진을 못 찾았다: ' + f);
+  };
+  const REGION = createRequire(import.meta.url)(find('region.js'));
+  ENGINE.APP_CFG = { dust: { thresholds: REGION.dust.thresholds } };
+  for (const f of ['air-core.js', 'dust-core.js']) {
+    new Function('window', fs.readFileSync(find(f), 'utf8'))(ENGINE);
+  }
+}
+
 fs.mkdirSync(OUT, { recursive: true });
 let ok = 0, fail = 0;
+/* 🗺 지도 점을 칠할 **전국 요약**. 앱은 도시별 파일 18개를 다 받지 않고 이 한 장만 읽는다.
+   🚨 이걸 안 만들면 앱의 지도 점이 **전부 회색**이 된다(2026-08-19 실측: colored 0/18).
+      `env-feed.overviewFromStatic()` 이 `index.json` 의 `summary` 배열을 찾는다 — 이름을 바꾸지 말 것. */
+const summary = [];
 for (const c of CITIES) {
   const file = path.join(OUT, c.id + '.json');
   let prev = null;
@@ -143,6 +172,27 @@ for (const c of CITIES) {
       license: 'ODbL — Weather and air quality data provided by OpenWeather (https://openweathermap.org/)',
       weather, air
     }));
+    /* 🚨 모래는 CAMS 가 아니라 **조대입자(PM10−PM2.5)에서 환산**한다 — 앱과 같은 계수(1.8)를 쓴다.
+       앱이 다시 계산하지 않고 이 값을 그대로 칠하므로, 여기와 `dust-core.js` 가 어긋나면
+       지도 색과 카드 값이 서로 다른 말을 한다. */
+    /* 🚨 AQI 는 **NowCast** 로 낸다. 순간 농도를 EPA 24시간 표에 그대로 넣으면 두 배로 부푼다
+       (2026-08-18 두바이 모래 사건: 순간값 324 vs CAMS 158). 시간별 값은 위에서 쌓아 둔 것을 쓴다. */
+    const ser = k => (hourly && Array.isArray(hourly[k])) ? hourly[k].slice().reverse() : null;
+    const aqiOut = ENGINE.Air.usAqi(air, { pm25Series: ser('pm2_5'), pm10Series: ser('pm10') });
+    const risk = ENGINE.Dust.risk({
+      dust: air.dust, pm10: air.pm10, pm2_5: air.pm2_5,
+      windKmh: weather.windSpeed, gustKmh: weather.windGust, visibilityM: weather.visibility
+    });
+    const dustValue = air.dust != null ? air.dust
+      : ENGINE.Dust.coarseToDust(air.pm10, air.pm2_5);
+    summary.push({
+      id: c.id,
+      aqi: aqiOut.aqi,
+      dustValue: dustValue != null ? Math.round(dustValue) : null,
+      dust: risk.level,
+      temp: weather.temperature != null ? Math.round(weather.temperature) : null,
+      feels: weather.feelsLike != null ? Math.round(weather.feelsLike) : null
+    });
     ok++;
   } catch (e) {
     /* 🚨 실패하면 이전 파일을 **그대로 둔다**. 빈 파일로 덮으면 그 도시가 통째로 죽는다. */
@@ -152,6 +202,7 @@ for (const c of CITIES) {
 }
 fs.writeFileSync(path.join(OUT, 'index.json'), JSON.stringify({
   updatedAt: Date.now(), cities: CITIES.map(c => c.id),
+  summary,                       /* 🗺 지도 점 색 — 이 키 이름은 앱과의 약속이다 */
   attribution: 'Weather and air quality data provided by OpenWeather (ODbL)'
 }));
 console.log(`수집 완료 · 성공 ${ok} · 실패 ${fail} · ${OUT}`);
