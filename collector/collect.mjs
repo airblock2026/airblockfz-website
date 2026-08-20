@@ -204,7 +204,11 @@ for (const c of CITIES) {
       dustValue: dustValue != null ? Math.round(dustValue) : null,
       dust: risk.level,
       temp: weather.temperature != null ? Math.round(weather.temperature) : null,
-      feels: weather.feelsLike != null ? Math.round(weather.feelsLike) : null
+      feels: weather.feelsLike != null ? Math.round(weather.feelsLike) : null,
+      /* 🌬 지도에 바람 흐름을 그리려면 도시마다 방향·세기가 필요하다(2026-08-20 유저 요청).
+         🚨 방향은 기상 관례대로 **불어오는 쪽**(from) 각도다. 화살표를 그릴 때 180° 돌려야 한다. */
+      windDir: weather.windDirection != null ? Math.round(weather.windDirection) : null,
+      wind: weather.windSpeed != null ? Math.round(weather.windSpeed * 10) / 10 : null
     });
     ok++;
   } catch (e) {
