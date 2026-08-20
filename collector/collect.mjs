@@ -124,6 +124,15 @@ function roll (prev, weather, air) {
   const off = air.utcOffset || 0;
   const hourly = { _rows: keep, time: keep.map(r => msLocal(r.t, off)) };
   for (const k of ['pm10', 'pm2_5']) hourly[k] = keep.map(r => r[k]);
+  /* 🚨 2026-08-20 실기기에서 발견: **AQI·모래 그래프가 영원히 비어 있었다.**
+     앱은 `air.hourly.us_aqi` / `air.hourly.dust` 를 찾는데 우리가 pm10·pm2_5 만 냈다.
+     값은 있는데 이름이 없어서 못 그린 것이다 — pm 에서 **같은 엔진으로** 만들어 같이 낸다
+     (앱을 고치면 업데이트가 필요하지만, 여기서 고치면 이미 깔린 앱도 다음 수집부터 그려진다). */
+  hourly.us_aqi = keep.map(r => {
+    const o = ENGINE.Air.usAqi({ pm2_5: r.pm2_5, pm10: r.pm10 });
+    return (o && o.aqi != null) ? o.aqi : null;
+  });
+  hourly.dust = keep.map(r => ENGINE.Dust.coarseToDust(r.pm10, r.pm2_5));
   const wHourly = { time: hourly.time };
   for (const k of ['temperature_2m', 'relative_humidity_2m', 'wind_speed_10m']) wHourly[k] = keep.map(r => r[k]);
   return { hourly, wHourly };
