@@ -217,6 +217,40 @@ for (const c of CITIES) {
     fail++;
   }
 }
+/* 📊 **분포 누적** — 임계값을 나중에 실데이터로 잡기 위한 기록(2026-08-20 신설).
+   왜: 물려받은 모래 임계 [60,120,250] 로 재 보니 UAE 는 **표본의 96.7%가 최상위 '매우 높음'** 이었다
+       (450개 중 낮음 0개). 매일 "모래폭풍 수준"이라고 말하는 신호는 아무것도 알려 주지 않는다.
+   🚨 하루치로 임계값을 다시 잡으면 그것도 추측이다 → **날짜별 분위수만 쌓아 두고** 몇 주 뒤에 정한다.
+   🚨 앱은 이 파일을 읽지 않는다. 순수 기록용이라 앱 동작에 영향이 없다. */
+try {
+  const statsFile = path.join(OUT, 'dust-stats.json');
+  let stats = {};
+  try { stats = JSON.parse(fs.readFileSync(statsFile, 'utf8')); } catch (_) {}
+  const today = new Date().toISOString().slice(0, 10);
+  const vals = [];
+  for (const c of CITIES) {
+    try {
+      const j = JSON.parse(fs.readFileSync(path.join(OUT, c.id + '.json'), 'utf8'));
+      const r = j.air && j.air.hourly && j.air.hourly._rows;
+      const last = r && r[r.length - 1];
+      if (last && last.pm10 != null && last.pm2_5 != null) {
+        vals.push(Math.round(ENGINE.Dust.coarseToDust(last.pm10, last.pm2_5)));
+      }
+    } catch (_) {}
+  }
+  if (vals.length) {
+    vals.sort((a, b) => a - b);
+    const q = (f) => vals[Math.min(vals.length - 1, Math.floor(vals.length * f))];
+    const day = stats[today] || (stats[today] = { n: 0, samples: [] });
+    day.n += vals.length;
+    day.samples.push({ h: new Date().getUTCHours(), p25: q(0.25), p50: q(0.5), p75: q(0.75), p90: q(0.9), max: vals[vals.length - 1] });
+    /* 30일치만 남긴다 — 계절이 바뀌면 옛 분포는 오히려 방해다 */
+    const keys = Object.keys(stats).sort();
+    while (keys.length > 30) delete stats[keys.shift()];
+    fs.writeFileSync(statsFile, JSON.stringify(stats));
+  }
+} catch (e) { console.error('  분포 기록 실패(무시):', e.message); }
+
 fs.writeFileSync(path.join(OUT, 'index.json'), JSON.stringify({
   updatedAt: Date.now(), cities: CITIES.map(c => c.id),
   summary,                       /* 🗺 지도 점 색 — 이 키 이름은 앱과의 약속이다 */
